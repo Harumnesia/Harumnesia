@@ -7,6 +7,7 @@ import Edukasi from "./pages/Edukasi";
 import Recommendation from "./pages/Recommendation";
 import AboutUs from "./pages/AboutUs";
 import PerfumeDetail from "./pages/PerfumeDetail";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -17,10 +18,12 @@ function App() {
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/brands" element={<Brands />} />
           <Route path="/brands/:brandId" element={<BrandDetail />} />
+          <Route path="/brand/:brandName" element={<BrandDetail />} />
           <Route path="/edukasi" element={<Edukasi />} />
           <Route path="/recommendation" element={<Recommendation />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/perfume/:id" element={<PerfumeDetail />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </Router>
