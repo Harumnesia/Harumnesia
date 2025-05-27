@@ -1,17 +1,19 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 // Icon components
 const MaleIcon = () => (
   <svg
-    width="24"
-    height="24"
+    width="48"
+    height="48"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    className="transition-transform duration-300 group-hover:scale-110"
   >
-    <circle cx="12" cy="12" r="10" fill="#CBE3F7" />
+    <circle cx="12" cy="12" r="10" fill="#CBE3F7" className="drop-shadow-md" />
     <path
       d="M12 14C9.79086 14 8 12.2091 8 10C8 7.79086 9.79086 6 12 6C14.2091 6 16 7.79086 16 10C16 12.2091 14.2091 14 12 14Z"
       fill="#003087"
@@ -25,13 +27,14 @@ const MaleIcon = () => (
 
 const FemaleIcon = () => (
   <svg
-    width="24"
-    height="24"
+    width="48"
+    height="48"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    className="transition-transform duration-300 group-hover:scale-110"
   >
-    <circle cx="12" cy="12" r="10" fill="#FFC5BF" />
+    <circle cx="12" cy="12" r="10" fill="#FFC5BF" className="drop-shadow-md" />
     <path
       d="M12 14C9.79086 14 8 12.2091 8 10C8 7.79086 9.79086 6 12 6C14.2091 6 16 7.79086 16 10C16 12.2091 14.2091 14 12 14Z"
       fill="#DD437B"
@@ -45,13 +48,14 @@ const FemaleIcon = () => (
 
 const UnisexIcon = () => (
   <svg
-    width="24"
-    height="24"
+    width="48"
+    height="48"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    className="transition-transform duration-300 group-hover:scale-110"
   >
-    <circle cx="12" cy="12" r="10" fill="#EBDDEE" />
+    <circle cx="12" cy="12" r="10" fill="#EBDDEE" className="drop-shadow-md" />
     <path
       d="M12 14C9.79086 14 8 12.2091 8 10C8 7.79086 9.79086 6 12 6C14.2091 6 16 7.79086 16 10C16 12.2091 14.2091 14 12 14Z"
       fill="#9A4AA6"
@@ -65,39 +69,38 @@ const UnisexIcon = () => (
 
 const MorningIcon = () => (
   <svg
-    width="24"
-    height="24"
+    width="48"
+    height="48"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    className="transition-transform duration-300 group-hover:scale-110"
   >
-    <circle cx="12" cy="12" r="10" fill="#F9EEC7" />
+    <circle cx="12" cy="12" r="10" fill="#FFF4E6" className="drop-shadow-md" />
+    <circle cx="12" cy="12" r="4" fill="#F59E0B" />
     <path
-      d="M12 6V9M16.24 7.76L14.12 9.88M18 12H15M16.24 16.24L14.12 14.12M12 15V18M7.76 16.24L9.88 14.12M6 12H9M7.76 7.76L9.88 9.88M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z"
-      stroke="#E8B321"
+      d="M12 2V4M18.36 5.64L17.66 6.34M22 12H20M18.36 18.36L17.66 17.66M12 20V22M6.34 18.36L7.04 17.66M2 12H4M6.34 5.64L7.04 6.34"
+      stroke="#F59E0B"
       strokeWidth="2"
       strokeLinecap="round"
-      strokeLinejoin="round"
     />
   </svg>
 );
 
 const DayIcon = () => (
   <svg
-    width="24"
-    height="24"
+    width="48"
+    height="48"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    className="transition-transform duration-300 group-hover:scale-110"
   >
-    <circle cx="12" cy="12" r="10" fill="#CBE3F7" />
+    <circle cx="12" cy="12" r="10" fill="#E0F2FE" className="drop-shadow-md" />
+    <circle cx="12" cy="12" r="5" fill="#0EA5E9" />
     <path
-      d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"
-      fill="#3E8CDB"
-    />
-    <path
-      d="M12 2V4M12 20V22M4 12H2M6.31412 6.31412L4.9 4.9M17.6858 6.31412L19.1 4.9M6.31412 17.69L4.9 19.1M17.6858 17.69L19.1 19.1M22 12H20"
-      stroke="#3E8CDB"
+      d="M12 2V4M18.36 5.64L17.66 6.34M22 12H20M18.36 18.36L17.66 17.66M12 20V22M6.34 18.36L7.04 17.66M2 12H4M6.34 5.64L7.04 6.34"
+      stroke="#0EA5E9"
       strokeWidth="2"
       strokeLinecap="round"
     />
@@ -106,21 +109,23 @@ const DayIcon = () => (
 
 const NightIcon = () => (
   <svg
-    width="24"
-    height="24"
+    width="48"
+    height="48"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    className="transition-transform duration-300 group-hover:scale-110"
   >
-    <circle cx="12" cy="12" r="10" fill="#CBE3F7" />
+    <circle cx="12" cy="12" r="10" fill="#1E1B4B" className="drop-shadow-md" />
     <path
-      d="M21.9548 14.339C21.5108 14.5258 21.0108 14.5258 20.5668 14.339C19.1548 13.795 17.9988 12.639 17.4548 11.227C17.2688 10.783 17.2688 10.283 17.4548 9.839C17.9988 8.427 19.1548 7.271 20.5668 6.727C21.0108 6.54 21.5108 6.54 21.9548 6.727C21.1908 3.875 18.5908 1.834 15.4998 2.003C12.7528 2.152 10.4228 4.117 9.91079 6.839C9.39879 9.561 10.7978 12.252 13.2578 13.535C15.7178 14.818 18.7448 14.237 20.5668 12.177C21.1108 11.565 21.6548 11.067 21.9548 14.339Z"
-      fill="#003087"
+      d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+      fill="#FBBF24"
     />
+    <circle cx="17" cy="7" r="1" fill="#FBBF24" />
+    <circle cx="19" cy="9" r="0.5" fill="#FBBF24" />
+    <circle cx="16" cy="4" r="0.5" fill="#FBBF24" />
   </svg>
 );
-
-
 
 const TimeIcon = () => (
   <svg
@@ -137,7 +142,163 @@ const TimeIcon = () => (
   </svg>
 );
 
+// Budget Icons
+const BudgetLowIcon = () => (
+  <svg
+    width="48"
+    height="48"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="transition-transform duration-300 group-hover:scale-110"
+  >
+    <circle cx="12" cy="12" r="10" fill="#FEF3C7" className="drop-shadow-md" />
+    <path
+      d="M12 7V17M8 12H16"
+      stroke="#D97706"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+    <circle cx="12" cy="12" r="6" stroke="#D97706" strokeWidth="2" fill="none" />
+  </svg>
+);
+
+const BudgetMediumIcon = () => (
+  <svg
+    width="48"
+    height="48"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="transition-transform duration-300 group-hover:scale-110"
+  >
+    <circle cx="12" cy="12" r="10" fill="#DCFCE7" className="drop-shadow-md" />
+    <path d="M12 7V17M8 12H16" stroke="#059669" strokeWidth="2" strokeLinecap="round" />
+    <circle cx="12" cy="12" r="6" stroke="#059669" strokeWidth="2" fill="none" />
+    <circle cx="8" cy="8" r="2" fill="#059669" />
+    <circle cx="16" cy="16" r="2" fill="#059669" />
+  </svg>
+);
+
+const BudgetHighIcon = () => (
+  <svg
+    width="48"
+    height="48"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="transition-transform duration-300 group-hover:scale-110"
+  >
+    <circle cx="12" cy="12" r="10" fill="#FEF3C7" className="drop-shadow-md" />
+    <path d="M12 7V17M8 12H16" stroke="#D97706" strokeWidth="2" strokeLinecap="round" />
+    <circle cx="12" cy="12" r="6" stroke="#D97706" strokeWidth="2" fill="#FBBF24" />
+    <circle cx="8" cy="8" r="2" fill="#D97706" />
+    <circle cx="16" cy="8" r="2" fill="#D97706" />
+    <circle cx="8" cy="16" r="2" fill="#D97706" />
+    <circle cx="16" cy="16" r="2" fill="#D97706" />
+  </svg>
+);
+
+// Concentration Icons
+const EDTIcon = () => (
+  <svg
+    width="48"
+    height="48"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="transition-transform duration-300 group-hover:scale-110"
+  >
+    <circle cx="12" cy="12" r="10" fill="#E0F2FE" className="drop-shadow-md" />
+    <rect x="9" y="6" width="6" height="12" rx="3" fill="#0EA5E9" />
+    <rect x="10" y="8" width="4" height="2" fill="white" />
+    <circle cx="12" cy="5" r="1" fill="#0EA5E9" />
+  </svg>
+);
+
+const EDPIcon = () => (
+  <svg
+    width="48"
+    height="48"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="transition-transform duration-300 group-hover:scale-110"
+  >
+    <circle cx="12" cy="12" r="10" fill="#F3E8FF" className="drop-shadow-md" />
+    <rect x="9" y="6" width="6" height="12" rx="3" fill="#9333EA" />
+    <rect x="10" y="8" width="4" height="4" fill="white" />
+    <circle cx="12" cy="5" r="1" fill="#9333EA" />
+  </svg>
+);
+
+const XDPIcon = () => (
+  <svg
+    width="48"
+    height="48"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="transition-transform duration-300 group-hover:scale-110"
+  >
+    <circle cx="12" cy="12" r="10" fill="#FEF2F2" className="drop-shadow-md" />
+    <rect x="9" y="6" width="6" height="12" rx="3" fill="#DC2626" />
+    <rect x="10" y="8" width="4" height="6" fill="white" />
+    <circle cx="12" cy="5" r="1" fill="#DC2626" />
+  </svg>
+);
+
+// Bottle Size Icons
+const TravelSizeIcon = () => (
+  <svg
+    width="48"
+    height="48"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="transition-transform duration-300 group-hover:scale-110"
+  >
+    <circle cx="12" cy="12" r="10" fill="#FEF3C7" className="drop-shadow-md" />
+    <rect x="10" y="6" width="4" height="12" rx="2" fill="#F59E0B" />
+    <rect x="11" y="8" width="2" height="2" fill="white" />
+    <circle cx="12" cy="5" r="0.5" fill="#F59E0B" />
+  </svg>
+);
+
+const SmallSizeIcon = () => (
+  <svg
+    width="48"
+    height="48"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="transition-transform duration-300 group-hover:scale-110"
+  >
+    <circle cx="12" cy="12" r="10" fill="#E0F2FE" className="drop-shadow-md" />
+    <rect x="9" y="6" width="6" height="12" rx="3" fill="#0EA5E9" />
+    <rect x="10" y="8" width="4" height="3" fill="white" />
+    <circle cx="12" cy="5" r="0.75" fill="#0EA5E9" />
+  </svg>
+);
+
+const LargeSizeIcon = () => (
+  <svg
+    width="48"
+    height="48"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="transition-transform duration-300 group-hover:scale-110"
+  >
+    <circle cx="12" cy="12" r="10" fill="#F3E8FF" className="drop-shadow-md" />
+    <rect x="8" y="6" width="8" height="12" rx="4" fill="#9333EA" />
+    <rect x="9" y="8" width="6" height="4" fill="white" />
+    <circle cx="12" cy="5" r="1" fill="#9333EA" />
+  </svg>
+);
+
 const Recommendation = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     gender: "",
     timeOfUse: "",
@@ -146,7 +307,6 @@ const Recommendation = () => {
     bottleSize: "",
     aromaDescription: "",
   });
-
   const [showResults, setShowResults] = useState(false);
   const [recommendations, setRecommendations] = useState([]);
 
@@ -160,8 +320,10 @@ const Recommendation = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Logic to handle form submission
+    // In a real app, you would send the form data to the backend API
+    // For now, we'll just navigate to the results page
     console.log(formData);
+    navigate("/recommendation/results");
   };
 
   const getMockRecommendations = (data) => {
@@ -287,61 +449,85 @@ const Recommendation = () => {
       { value: "unisex", label: "Unisex", icon: <UnisexIcon /> },
     ],
     timeOfUse: [
-      { value: "morning", label: "Pagi", icon: <MorningIcon /> },
-      { value: "day", label: "Siang", icon: <DayIcon /> },
-      { value: "evening", label: "Malam", icon: <NightIcon /> },
+      { value: "day", label: "Siang", icon: <MorningIcon /> },
+      { value: "night", label: "Malam", icon: <DayIcon /> },
+      { value: "versatile", label: "Versatile", icon: <NightIcon /> },
     ],
     budget: [
-      { value: "low", label: "< Rp 150.000", icon: <MaleIcon /> },
-      { value: "medium", label: "Rp 150.000 - Rp 300.000", icon: <MaleIcon /> },
-      { value: "high", label: "> Rp 300.000", icon: <MaleIcon /> },
+      { value: "low", label: "< Rp 150.000", icon: <BudgetLowIcon /> },
+      { value: "medium", label: "Rp 150.000 - Rp 300.000", icon: <BudgetMediumIcon /> },
+      { value: "high", label: "> Rp 300.000", icon: <BudgetHighIcon /> },
     ],
     concentration: [
-      { value: "edt", label: "EDT", icon: <MaleIcon /> },
-      { value: "edp", label: "EDP", icon: <MaleIcon /> },
-      { value: "parfum", label: "Parfum", icon: <MaleIcon /> },
+      { value: "edt", label: "EDT", icon: <EDTIcon /> },
+      { value: "edp", label: "EDP", icon: <EDPIcon /> },
+      { value: "xdp", label: "XDP", icon: <XDPIcon /> },
     ],
     bottleSize: [
-      { value: "travel", label: "Travel Size (5-15ml)", icon: <MaleIcon /> },
-      { value: "small", label: "Small (30ml)", icon: <MaleIcon /> },
-      { value: "large", label: "Large (50-100ml)", icon: <MaleIcon /> },
+      { value: "travel", label: "Travel Size (5-15ml)", icon: <TravelSizeIcon /> },
+      { value: "small", label: "Small (30ml)", icon: <SmallSizeIcon /> },
+      { value: "large", label: "Large (50-100ml)", icon: <LargeSizeIcon /> },
     ],
   };
 
   return (
     <>
       <Navbar />
-      <div className="bg-dark-gray py-8 px-4 md:px-16 min-h-screen">
-        <div className="max-w-3xl mx-auto">
-          <div className="bg-white rounded-3xl overflow-hidden shadow-2xl">
-            <div className="px-8 py-12">
+      <div className="bg-gradient-to-br from-gray-50 to-gray-100 py-8 px-4 md:px-16 min-h-screen">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
+            <div className="px-8 py-12 md:px-12 md:py-16">
               {/* Header */}
-              <div className="mb-12 text-center">
-                <h1 className="font-playfair font-semibold text-3xl md:text-4xl text-black mb-2">
-                  Temukan Parfum Anda
-                </h1>
-                <p className="text-sm text-gray-600">
-                  Jawab pertanyaan berikut untuk mendapatkan rekomendasi parfum
-                  yang sesuai
-                </p>
+              <div className="mb-16 text-center relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-gold/5 via-transparent to-gold/5 rounded-full transform -skew-y-1"></div>
+                <div className="relative">
+                  <h1 className="font-playfair font-bold text-4xl md:text-5xl text-gray-900 mb-4 leading-tight">
+                    Temukan Parfum <span className="text-gold">Impian</span> Anda
+                  </h1>
+                  <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                    Jawab pertanyaan berikut untuk mendapatkan rekomendasi parfum yang sempurna sesuai kepribadian dan preferensi Anda
+                  </p>
+                  <div className="mt-6 flex justify-center">
+                    <div className="w-24 h-1 bg-gradient-to-r from-gold to-yellow-500 rounded-full"></div>
+                  </div>
+                </div>
               </div>
 
               {/* Form */}
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} className="space-y-2">
+                {/* Progress indicator */}
+                <div className="mb-12">
+                  <div className="flex justify-center space-x-2">
+                    {[1, 2, 3, 4, 5, 6].map((step) => (
+                      <div 
+                        key={step}
+                        className={`w-3 h-3 rounded-full transition-all duration-500 ${
+                          step <= Object.values(formData).filter(Boolean).length + 1
+                            ? 'bg-gold shadow-md'
+                            : 'bg-gray-200'
+                        }`}
+                      ></div>
+                    ))}
+                  </div>
+                  <p className="text-center text-sm text-gray-500 mt-3">
+                    {Object.values(formData).filter(Boolean).length} dari 6 pertanyaan dijawab
+                  </p>
+                </div>
                 {/* Gender Selection */}
-                <div className="mb-8">
-                  <h2 className="font-playfair font-medium text-xl mb-4">
+                <div className="mb-10">
+                  <h2 className="font-playfair font-medium text-xl mb-6 text-gray-800 flex items-center">
+                    <span className="w-2 h-8 bg-gold rounded-full mr-3"></span>
                     Untuk siapa parfum ini?
                   </h2>
-                  <div className="flex flex-wrap justify-between gap-2">
+                  <div className="flex flex-wrap justify-between gap-3">
                     {options.gender.map((option) => (
                       <label
                         key={option.value}
-                        className={`w-[32%] relative border rounded-xl p-4 cursor-pointer transition-all
+                        className={`group w-[32%] relative border-2 rounded-2xl p-6 cursor-pointer transition-all duration-300 transform hover:scale-105
                           ${
                             formData.gender === option.value
-                              ? "border-gold bg-gold/5 shadow-md"
-                              : "border-gray-200 hover:border-gold/50 hover:shadow-sm"
+                              ? "border-gold bg-gradient-to-br from-gold/10 to-gold/5 shadow-lg ring-2 ring-gold/30"
+                              : "border-gray-200 hover:border-gold/50 hover:shadow-md hover:bg-gray-50/50"
                           }`}
                       >
                         <input
@@ -353,8 +539,8 @@ const Recommendation = () => {
                           className="sr-only"
                         />
                         <div className="flex flex-col items-center justify-center">
-                          <div className="mb-2">{option.icon}</div>
-                          <span className="font-playfair text-center">
+                          <div className="mb-3 transition-transform duration-300">{option.icon}</div>
+                          <span className="font-playfair text-center font-medium text-gray-700 group-hover:text-gray-900">
                             {option.label}
                           </span>
                         </div>
@@ -364,19 +550,20 @@ const Recommendation = () => {
                 </div>
 
                 {/* Time of Use */}
-                <div className="mb-8">
-                  <h2 className="font-playfair font-medium text-xl mb-4">
+                <div className="mb-10">
+                  <h2 className="font-playfair font-medium text-xl mb-6 text-gray-800 flex items-center">
+                    <span className="w-2 h-8 bg-gold rounded-full mr-3"></span>
                     Kapan parfum akan digunakan?
                   </h2>
-                  <div className="flex flex-wrap justify-between gap-2">
+                  <div className="flex flex-wrap justify-between gap-3">
                     {options.timeOfUse.map((option) => (
                       <label
                         key={option.value}
-                        className={`w-[32%] relative border rounded-xl p-4 cursor-pointer transition-all
+                        className={`group w-[32%] relative border-2 rounded-2xl p-6 cursor-pointer transition-all duration-300 transform hover:scale-105
                           ${
                             formData.timeOfUse === option.value
-                              ? "border-gold bg-gold/5 shadow-md"
-                              : "border-gray-200 hover:border-gold/50 hover:shadow-sm"
+                              ? "border-gold bg-gradient-to-br from-gold/10 to-gold/5 shadow-lg ring-2 ring-gold/30"
+                              : "border-gray-200 hover:border-gold/50 hover:shadow-md hover:bg-gray-50/50"
                           }`}
                       >
                         <input
@@ -388,8 +575,8 @@ const Recommendation = () => {
                           className="sr-only"
                         />
                         <div className="flex flex-col items-center justify-center">
-                          <div className="mb-2">{option.icon}</div>
-                          <span className="font-playfair text-center">
+                          <div className="mb-3 transition-transform duration-300">{option.icon}</div>
+                          <span className="font-playfair text-center font-medium text-gray-700 group-hover:text-gray-900">
                             {option.label}
                           </span>
                         </div>
@@ -399,19 +586,20 @@ const Recommendation = () => {
                 </div>
 
                 {/* Budget */}
-                <div className="mb-8">
-                  <h2 className="font-playfair font-medium text-xl mb-4">
+                <div className="mb-10">
+                  <h2 className="font-playfair font-medium text-xl mb-6 text-gray-800 flex items-center">
+                    <span className="w-2 h-8 bg-gold rounded-full mr-3"></span>
                     Berapa budget kamu?
                   </h2>
-                  <div className="flex flex-wrap justify-between gap-2">
+                  <div className="flex flex-wrap justify-between gap-3">
                     {options.budget.map((option) => (
                       <label
                         key={option.value}
-                        className={`w-[32%] relative border rounded-xl p-4 cursor-pointer transition-all
+                        className={`group w-[32%] relative border-2 rounded-2xl p-6 cursor-pointer transition-all duration-300 transform hover:scale-105
                           ${
                             formData.budget === option.value
-                              ? "border-gold bg-gold/5 shadow-md"
-                              : "border-gray-200 hover:border-gold/50 hover:shadow-sm"
+                              ? "border-gold bg-gradient-to-br from-gold/10 to-gold/5 shadow-lg ring-2 ring-gold/30"
+                              : "border-gray-200 hover:border-gold/50 hover:shadow-md hover:bg-gray-50/50"
                           }`}
                       >
                         <input
@@ -423,8 +611,8 @@ const Recommendation = () => {
                           className="sr-only"
                         />
                         <div className="flex flex-col items-center justify-center">
-                          <div className="mb-2">{option.icon}</div>
-                          <span className="font-playfair text-center">
+                          <div className="mb-3 transition-transform duration-300">{option.icon}</div>
+                          <span className="font-playfair text-center font-medium text-gray-700 group-hover:text-gray-900 text-sm">
                             {option.label}
                           </span>
                         </div>
@@ -434,19 +622,20 @@ const Recommendation = () => {
                 </div>
 
                 {/* Concentration */}
-                <div className="mb-8">
-                  <h2 className="font-playfair font-medium text-xl mb-4">
+                <div className="mb-10">
+                  <h2 className="font-playfair font-medium text-xl mb-6 text-gray-800 flex items-center">
+                    <span className="w-2 h-8 bg-gold rounded-full mr-3"></span>
                     Pilih tingkat konsentrasi Anda
                   </h2>
-                  <div className="flex flex-wrap justify-between gap-2">
+                  <div className="flex flex-wrap justify-between gap-3">
                     {options.concentration.map((option) => (
                       <label
                         key={option.value}
-                        className={`w-[32%] relative border rounded-xl p-4 cursor-pointer transition-all
+                        className={`group w-[32%] relative border-2 rounded-2xl p-6 cursor-pointer transition-all duration-300 transform hover:scale-105
                           ${
                             formData.concentration === option.value
-                              ? "border-gold bg-gold/5 shadow-md"
-                              : "border-gray-200 hover:border-gold/50 hover:shadow-sm"
+                              ? "border-gold bg-gradient-to-br from-gold/10 to-gold/5 shadow-lg ring-2 ring-gold/30"
+                              : "border-gray-200 hover:border-gold/50 hover:shadow-md hover:bg-gray-50/50"
                           }`}
                       >
                         <input
@@ -458,8 +647,8 @@ const Recommendation = () => {
                           className="sr-only"
                         />
                         <div className="flex flex-col items-center justify-center">
-                          <div className="mb-2">{option.icon}</div>
-                          <span className="font-playfair text-center">
+                          <div className="mb-3 transition-transform duration-300">{option.icon}</div>
+                          <span className="font-playfair text-center font-medium text-gray-700 group-hover:text-gray-900">
                             {option.label}
                           </span>
                         </div>
@@ -469,19 +658,20 @@ const Recommendation = () => {
                 </div>
 
                 {/* Bottle Size */}
-                <div className="mb-8">
-                  <h2 className="font-playfair font-medium text-xl mb-4">
+                <div className="mb-10">
+                  <h2 className="font-playfair font-medium text-xl mb-6 text-gray-800 flex items-center">
+                    <span className="w-2 h-8 bg-gold rounded-full mr-3"></span>
                     Berapa size botol yang kamu cari?
                   </h2>
-                  <div className="flex flex-wrap justify-between gap-2">
+                  <div className="flex flex-wrap justify-between gap-3">
                     {options.bottleSize.map((option) => (
                       <label
                         key={option.value}
-                        className={`w-[32%] relative border rounded-xl p-4 cursor-pointer transition-all
+                        className={`group w-[32%] relative border-2 rounded-2xl p-6 cursor-pointer transition-all duration-300 transform hover:scale-105
                           ${
                             formData.bottleSize === option.value
-                              ? "border-gold bg-gold/5 shadow-md"
-                              : "border-gray-200 hover:border-gold/50 hover:shadow-sm"
+                              ? "border-gold bg-gradient-to-br from-gold/10 to-gold/5 shadow-lg ring-2 ring-gold/30"
+                              : "border-gray-200 hover:border-gold/50 hover:shadow-md hover:bg-gray-50/50"
                           }`}
                       >
                         <input
@@ -493,8 +683,8 @@ const Recommendation = () => {
                           className="sr-only"
                         />
                         <div className="flex flex-col items-center justify-center">
-                          <div className="mb-2">{option.icon}</div>
-                          <span className="font-playfair text-center">
+                          <div className="mb-3 transition-transform duration-300">{option.icon}</div>
+                          <span className="font-playfair text-center font-medium text-gray-700 group-hover:text-gray-900 text-sm">
                             {option.label}
                           </span>
                         </div>
@@ -504,27 +694,44 @@ const Recommendation = () => {
                 </div>
 
                 {/* Aroma Description */}
-                <div className="mb-10">
-                  <h2 className="font-playfair font-medium text-xl mb-4">
+                <div className="mb-12">
+                  <h2 className="font-playfair font-medium text-xl mb-6 text-gray-800 flex items-center">
+                    <span className="w-2 h-8 bg-gold rounded-full mr-3"></span>
                     Deskripsikan aroma yang kamu inginkan
                   </h2>
-                  <textarea
-                    name="aromaDescription"
-                    value={formData.aromaDescription}
-                    onChange={handleChange}
-                    className="w-full p-4 bg-cream border border-gray-300 rounded-xl font-light text-gray-600"
-                    placeholder="Contoh : Aku ingin parfum yang segar dan ringan seperti jeruk tidak manis dan cocok untuk olahraga"
-                    rows="4"
-                  ></textarea>
+                  <div className="relative">
+                    <textarea
+                      name="aromaDescription"
+                      value={formData.aromaDescription}
+                      onChange={handleChange}
+                      className="w-full p-6 bg-gradient-to-br from-cream to-gray-50 border-2 border-gray-200 rounded-2xl font-light text-gray-700 focus:border-gold focus:ring-4 focus:ring-gold/20 focus:outline-none transition-all duration-300 resize-none hover:shadow-md placeholder-gray-400"
+                      placeholder="Contoh: Aku ingin parfum yang segar dan ringan seperti jeruk tidak manis dan cocok untuk olahraga"
+                      rows="5"
+                    ></textarea>
+                    <div className="absolute bottom-4 right-4 text-xs text-gray-400">
+                      {formData.aromaDescription.length}/500
+                    </div>
+                  </div>
                 </div>
 
                 {/* Submit Button */}
                 <div className="text-center">
                   <button
                     type="submit"
-                    className="w-full font-playfair font-semibold bg-gold py-3 px-6 rounded-lg shadow-md hover:bg-gold/90 transition-colors"
+                    className="group relative w-full font-playfair font-semibold bg-gradient-to-r from-gold to-yellow-500 text-white py-4 px-8 rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 overflow-hidden"
                   >
-                    Dapatkan Rekomendasi Parfum
+                    <span className="relative z-10 flex items-center justify-center">
+                      <svg 
+                        className="w-5 h-5 mr-2 transition-transform duration-300 group-hover:rotate-12" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                      Dapatkan Rekomendasi Parfum
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-yellow-500 to-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </button>
                 </div>
               </form>

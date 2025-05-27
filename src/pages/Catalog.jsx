@@ -33,24 +33,32 @@ const PerfumeCard = ({ id, image, brand, name, price }) => {
   return (
     <Link
       to={`/perfume/${id}`}
-      className="block bg-white rounded-xl overflow-hidden hover:shadow-lg transition-shadow"
+      className="block bg-white rounded-xl overflow-hidden hover:shadow-gold hover:translate-y-[-5px] transition-all duration-300 relative group"
     >
-      <img src={imgSrc} alt={name} className="w-full h-52 object-cover" />
-      <div className="p-4">
+      <div className="relative overflow-hidden">
+        <img
+          src={imgSrc}
+          alt={name}
+          className="w-full h-52 object-cover transform group-hover:scale-110 transition-transform duration-500"
+        />
+        <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+      </div>
+      <div className="p-4 relative">
         <div className="mb-1">
-          <span className="text-dark-blue font-inter text-xs uppercase">
+          <span className="text-dark-blue font-inter text-xs uppercase group-hover:text-gold transition-colors duration-300">
             {brand}
           </span>
         </div>
-        <h2 className="font-playfair font-bold text-xl text-dark-gray mb-2">
+        <h2 className="font-playfair font-bold text-xl text-dark-gray mb-2 group-hover:text-dark-blue transition-colors duration-300">
           {name}
         </h2>
         <div className="flex justify-between items-center">
-          <span className="bg-black text-white font-inter font-medium text-sm px-3 py-1 rounded-md">
+          <span className="bg-black text-white font-inter font-medium text-sm px-3 py-1 rounded-md group-hover:bg-gold group-hover:text-black transition-all duration-300">
             {price || "Price unavailable"}
           </span>
           <span className="text-light-gray font-inter text-sm">30ml XDP</span>
         </div>
+        <div className="absolute bottom-0 left-0 w-full h-1 bg-gold transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></div>
       </div>
     </Link>
   );

@@ -59,7 +59,7 @@ const Navbar = () => {
         >
           Edukasi
         </Link>
-        <Link
+        {/* <Link
           to="/recommendation"
           className={`font-inter font-light text-xl transition-colors ${
             isActive("/recommendation")
@@ -68,7 +68,7 @@ const Navbar = () => {
           }`}
         >
           Rekomendasi
-        </Link>
+        </Link> */}
         <Link
           to="/about-us"
           className={`font-inter font-light text-xl transition-colors ${
@@ -79,22 +79,28 @@ const Navbar = () => {
         </Link>
       </div>
 
-      {/* Search Icon */}
-      <div className="w-6 h-6 flex items-center justify-center">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          className="text-white w-6 h-6"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.5}
-            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-          />
-        </svg>
+      {/* Recommendation Button */}
+      <div>
+        <Link to="/recommendation-method">
+          <button className="bg-gradient-to-r from-gold to-gold/80 text-black font-inter font-medium px-5 py-2 rounded-full text-sm shadow-[0_0_10px_rgba(245,213,122,0.4)] hover:shadow-[0_0_15px_rgba(245,213,122,0.7)] hover:scale-105 transition-all duration-300 flex items-center border border-gold/30 relative overflow-hidden group animate-pulse-subtle">
+            <span className="relative z-10 mr-1.5 group-hover:font-semibold">
+              Rekomendasi
+            </span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-3.5 w-3.5 relative z-10 group-hover:translate-x-1 transition-transform duration-300"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <div className="absolute top-0 -left-1 w-[120%] h-full bg-gradient-to-r from-gold/30 via-white/30 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+          </button>
+        </Link>
       </div>
     </nav>
   );

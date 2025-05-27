@@ -35,65 +35,192 @@ const EdukasiDetail = () => {
   return (
     <>
       <Navbar />
-      <div className="bg-dark-gray min-h-screen py-16 px-8 md:px-16">
+      <div className="bg-dark-gray min-h-screen py-16 px-8 md:px-16 bg-[radial-gradient(ellipse_at_top_right,_rgba(245,213,122,0.08),transparent_70%)]">
         <div className="max-w-4xl mx-auto">
-          {/* Breadcrumb */}
-          <div className="mb-8">
+          {/* Enhanced Breadcrumb */}
+          <div className="mb-8 flex items-center">
             <div className="flex items-center text-white font-inter">
-              <Link to="/" className="hover:text-gold transition-colors">
+              <Link
+                to="/"
+                className="hover:text-gold transition-colors flex items-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4 mr-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  />
+                </svg>
                 Home
               </Link>
-              <span className="mx-2">/</span>
-              <Link to="/edukasi" className="hover:text-gold transition-colors">
+              <span className="mx-2 text-gold/60">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-3 w-3"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </span>
+              <Link
+                to="/edukasi"
+                className="hover:text-gold transition-colors"
+              >
                 Edukasi
               </Link>
-              <span className="mx-2">/</span>
+              <span className="mx-2 text-gold/60">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-3 w-3"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </span>
               <span className="text-gold">{contentData.title}</span>
             </div>
           </div>
 
-          {/* Content */}
-          <div className="bg-white rounded-xl p-8">
-            <h1 className="font-playfair font-bold text-3xl md:text-4xl text-dark-gray mb-6">
-              {contentData.title}
-            </h1>
+          {/* Enhanced Content with luxury styling */}
+          <div className="bg-white rounded-xl p-8 shadow-lg border border-gold/10 relative overflow-hidden">
+            {/* Background decorative elements */}
+            <div className="absolute top-0 left-0 w-full h-40 opacity-5">
+              <div className="absolute top-0 right-0 w-80 h-40 bg-gradient-to-bl from-gold/20 to-transparent rounded-br-full"></div>
+            </div>
 
-            <div className="prose prose-lg max-w-none">
+            <div className="absolute bottom-0 right-0 w-full h-40 opacity-5">
+              <div className="absolute bottom-0 left-0 w-80 h-40 bg-gradient-to-tr from-gold/20 to-transparent rounded-tr-full"></div>
+            </div>
+
+            {/* Luxury title with decorative elements */}
+            <div className="relative mb-8 text-center">
+              <div className="flex justify-center mb-2 opacity-30">
+                <div className="w-20 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent"></div>
+              </div>
+
+              <h1 className="font-playfair font-bold text-3xl md:text-4xl text-dark-gray mb-2 relative inline-block">
+                <span className="opacity-0 absolute -inset-0.5 bg-gold blur-sm animate-pulse-subtle"></span>
+                <span className="relative">{contentData.title}</span>
+                <span className="absolute -bottom-2 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gold/60 to-transparent transform"></span>
+              </h1>
+
+              <div className="flex justify-center items-center mt-2">
+                <div className="h-[2px] w-8 bg-gradient-to-r from-transparent to-gold/30"></div>
+                <div className="mx-3 text-gold opacity-60 text-xs">✦</div>
+                <div className="h-[2px] w-8 bg-gradient-to-r from-gold/30 to-transparent"></div>
+              </div>
+            </div>
+
+            <div className="prose prose-lg max-w-none relative z-10">
               {contentData.content.map((section, index) => (
-                <div key={index} className="mb-8">
+                <div
+                  key={index}
+                  className="mb-12 relative hover:translate-x-1 transition-all duration-700"
+                >
                   {section.heading && (
-                    <h2 className="font-playfair font-bold text-2xl text-dark-gray mb-4">
-                      {section.heading}
+                    <h2 className="font-playfair font-bold text-2xl text-dark-gray mb-4 relative inline-flex items-center">
+                      <span className="text-gold mr-2 opacity-70">✦</span>
+                      <span className="relative">
+                        {section.heading}
+                        <span className="absolute -bottom-1 left-0 right-0 h-[1px] bg-gradient-to-r from-gold/40 to-transparent transform"></span>
+                      </span>
                     </h2>
                   )}
-                  {section.text.map((paragraph, pIndex) => (
-                    <p
-                      key={pIndex}
-                      className="font-inter text-light-gray mb-4 leading-relaxed"
-                    >
-                      {paragraph}
-                    </p>
-                  ))}
+
+                  <div className="ml-5 border-l-2 border-gold/10 pl-6">
+                    {section.text.map((paragraph, pIndex) => (
+                      <p
+                        key={pIndex}
+                        className="font-inter text-light-gray mb-5 leading-relaxed"
+                      >
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
+
+            {/* Bottom decorative element */}
+            <div className="flex justify-center mb-2 opacity-30">
+              <div className="w-40 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent"></div>
+            </div>
           </div>
 
-          {/* Navigation to other categories */}
-          <div className="mt-12">
-            <h3 className="font-playfair font-bold text-2xl text-white mb-6">
-              Artikel Edukasi Lainnya
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Enhanced Related Links section - with better responsive design */}
+          <div className="mt-12 relative">
+            <div className="flex items-center mb-6">
+              <div className="h-[1px] w-8 bg-gradient-to-r from-transparent to-gold/40 mr-4"></div>
+              <h3 className="font-playfair font-bold text-xl md:text-2xl text-white relative inline-block">
+                Artikel Edukasi Lainnya
+                <span className="absolute -bottom-1 left-0 right-0 h-[1px] bg-gradient-to-r from-gold/40 to-transparent transform"></span>
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               {contentData.relatedLinks.map((link) => (
                 <Link key={link.slug} to={`/edukasi/${link.slug}`}>
-                  <div className="bg-white rounded-xl p-6 hover:shadow-lg transition-shadow">
-                    <h4 className="font-playfair font-bold text-xl text-dark-gray mb-2">
+                  <div className="bg-white rounded-xl p-5 md:p-6 hover:shadow-lg transition-all duration-500 hover:shadow-gold/5 hover:-translate-y-1 transform relative group overflow-hidden border border-gold/5">
+                    {/* Shine effect on hover */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100">
+                      <div className="absolute -inset-full top-0 block w-full h-full bg-gradient-to-r from-transparent via-gold/10 to-transparent skew-x-15 transform group-hover:-translate-x-full transition-all duration-1000 ease-out"></div>
+                    </div>
+
+                    {/* Gold accent that appears on hover */}
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-gold/30 via-gold to-gold/30 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+
+                    <h4 className="font-playfair font-bold text-lg md:text-xl text-dark-gray mb-2 group-hover:text-dark-blue transition-colors duration-300 relative">
                       {link.title}
+                      <span className="text-gold opacity-60 text-xs absolute -top-1 -left-1">
+                        ✦
+                      </span>
                     </h4>
+
                     <p className="font-inter text-light-gray text-sm">
                       {link.description}
                     </p>
+
+                    {/* Read more indicator that becomes more visible on hover */}
+                    <div className="mt-4 flex items-center text-gold opacity-40 group-hover:opacity-100 transition-opacity">
+                      <span className="text-xs md:text-sm font-inter mr-1">
+                        Baca selengkapnya
+                      </span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4 transform group-hover:translate-x-1 transition-transform"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M14 5l7 7m0 0l-7 7m7-7H3"
+                        />
+                      </svg>
+                    </div>
                   </div>
                 </Link>
               ))}

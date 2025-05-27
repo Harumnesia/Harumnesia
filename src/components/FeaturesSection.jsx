@@ -2,14 +2,23 @@ import React from "react";
 
 const FeatureCard = ({ title, description, icon }) => {
   return (
-    <div className="bg-white rounded-3xl p-8 flex flex-col items-center shadow-lg">
-      <div className="bg-gold w-16 h-16 rounded-full flex items-center justify-center mb-6">
-        {icon}
+    <div className="group relative bg-gradient-to-br from-white via-white to-cream rounded-3xl p-10 flex flex-col items-center shadow-[0_20px_60px_-12px_rgba(0,0,0,0.15)] hover:shadow-[0_30px_80px_-12px_rgba(0,0,0,0.25)] transition-all duration-700 border border-gold/10 hover:border-gold/30 transform hover:-translate-y-3 hover:scale-[1.02] backdrop-blur-sm">
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-gold/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+
+      {/* Icon container with enhanced design */}
+      <div className="relative bg-gradient-to-br from-gold via-gold to-gold/80 w-20 h-20 rounded-2xl flex items-center justify-center mb-8 shadow-[0_15px_35px_-10px_rgba(245,213,122,0.4)] group-hover:shadow-[0_25px_50px_-10px_rgba(245,213,122,0.6)] transition-all duration-700 group-hover:rotate-6 group-hover:scale-110">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
+        <div className="relative z-10 transform group-hover:scale-110 transition-transform duration-500">
+          {icon}
+        </div>
       </div>
-      <h3 className="font-playfair font-bold text-2xl md:text-3xl text-dark-gray mb-4 text-center">
+
+      <h3 className="relative z-10 font-playfair font-bold text-2xl md:text-3xl text-dark-gray mb-6 text-center leading-tight group-hover:text-dark-blue transition-colors duration-500">
         {title}
       </h3>
-      <p className="font-josefin font-medium text-light-gray text-center text-lg leading-relaxed">
+
+      <p className="relative z-10 font-inter font-medium text-light-gray text-center text-lg leading-relaxed group-hover:text-dark-gray transition-colors duration-500 max-w-sm">
         {description}
       </p>
     </div>
@@ -18,24 +27,47 @@ const FeatureCard = ({ title, description, icon }) => {
 
 const FeaturesSection = () => {
   return (
-    <section className="bg-dark-gray py-24 px-8 md:px-16">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="font-playfair font-bold text-4xl md:text-5xl text-white mb-16 text-center">
-          Mengapa Memilih Parfum Lokal?
-        </h2>
+    <section className="relative bg-dark-gray py-32 px-8 md:px-16 overflow-hidden">
+      {/* Simple background glow */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-radial from-gold/4 via-gold/2 to-transparent blur-3xl"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gold/1 to-transparent"></div>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="relative max-w-7xl mx-auto">
+        {/* Enhanced section header */}
+        <div className="text-center mb-20">
+          <div className="inline-block">
+            <span className="font-inter text-gold font-medium text-lg tracking-widest uppercase mb-4 block">
+              Keunggulan Eksklusif
+            </span>
+            <h2 className="font-playfair font-bold text-5xl md:text-7xl text-white mb-8 leading-tight">
+              Mengapa Memilih
+              <span className="block bg-gradient-to-r from-gold via-gold to-white bg-clip-text text-transparent">
+                Parfum Lokal?
+              </span>
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-6"></div>
+            <p className="font-inter text-white/80 text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-light">
+              Temukan keistimewaan parfum lokal Indonesia yang menggabungkan
+              tradisi, inovasi, dan kualitas premium dalam setiap tetesnya
+            </p>
+          </div>
+        </div>
+
+        {/* Enhanced features grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12">
           <FeatureCard
             title="Kualitas Premium"
-            description="Parfum lokal Indonesia dibuat dengan standar kualitas tinggi menggunakan bahan-bahan terbaik."
+            description="Parfum lokal Indonesia dibuat dengan standar kualitas tinggi menggunakan bahan-bahan terbaik dan teknologi modern yang telah teruji"
             icon={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 text-dark-blue"
+                className="h-10 w-10 text-dark-blue drop-shadow-lg"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
+                strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >
@@ -46,15 +78,15 @@ const FeaturesSection = () => {
           />
           <FeatureCard
             title="Dukung Lokal"
-            description="Dengan membeli parfum lokal, Anda mendukung kreativitas dan industri parfum Indonesia."
+            description="Dengan memilih parfum lokal, Anda turut mendukung kreativitas, inovasi, dan kemajuan industri parfum Indonesia menuju kelas dunia"
             icon={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 text-dark-blue"
+                className="h-10 w-10 text-dark-blue drop-shadow-lg"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
+                strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >
@@ -64,15 +96,15 @@ const FeaturesSection = () => {
           />
           <FeatureCard
             title="Aromanya Tahan Lama"
-            description="Parfum lokal dirancang untuk tahan lama dan cocok dengan kondisi iklim Indonesia."
+            description="Parfum lokal dirancang khusus untuk tahan lama dan cocok dengan kondisi iklim tropis Indonesia, memberikan pengalaman wewangian optimal"
             icon={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 text-dark-blue"
+                className="h-10 w-10 text-dark-blue drop-shadow-lg"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
+                strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >
@@ -80,6 +112,15 @@ const FeaturesSection = () => {
               </svg>
             }
           />
+        </div>
+
+        {/* Bottom decorative element */}
+        <div className="text-center mt-20">
+          <div className="inline-flex items-center space-x-4">
+            <div className="w-16 h-px bg-gradient-to-r from-transparent to-gold"></div>
+            <div className="w-3 h-3 bg-gold rounded-full animate-pulse"></div>
+            <div className="w-16 h-px bg-gradient-to-l from-transparent to-gold"></div>
+          </div>
         </div>
       </div>
     </section>
