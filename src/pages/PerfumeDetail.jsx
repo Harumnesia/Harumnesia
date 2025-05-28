@@ -294,7 +294,6 @@ const PerfumeDetail = () => {
               <span className="text-gold">{perfume.name}</span>
             </div>
           </div>
-
           {/* Product Overview Section */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-8">
             {/* Product Image */}
@@ -390,14 +389,14 @@ const PerfumeDetail = () => {
                   {/* Animated corner accent elements */}
                   <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-gold/20 to-transparent opacity-50 rounded-bl-full transform -translate-x-4 translate-y-4"></div>
                   <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-gold/20 to-transparent opacity-50 rounded-tr-full transform translate-x-3 -translate-y-4"></div>
-                  
+
                   {/* Subtle animated highlights */}
                   <div className="absolute top-1/4 right-1/4 w-1 h-1 bg-gold rounded-full animate-pulse opacity-70"></div>
                   <div className="absolute bottom-1/3 left-1/3 w-1 h-1 bg-gold rounded-full animate-pulse opacity-70 animation-delay-700"></div>
-                  
+
                   {/* Glowing border effect on hover */}
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-gold/5 via-gold/10 to-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur"></div>
-                  
+
                   <div className="relative z-10">
                     {/* Elegant title with decorative elements */}
                     <div className="flex items-center justify-center mb-8">
@@ -407,7 +406,7 @@ const PerfumeDetail = () => {
                       </h3>
                       <div className="h-[1px] w-12 bg-gradient-to-r from-gold/70 to-transparent"></div>
                     </div>
-                    
+
                     <div className="space-y-6">
                       <NoteCategory
                         title="Top Notes"
@@ -426,7 +425,8 @@ const PerfumeDetail = () => {
                 </div>
               )}
             </div>
-          </div>          {/* Similar Perfumes Section */}
+          </div>{" "}
+          {/* Similar Perfumes Section */}
           {similarPerfumes.length > 0 && (
             <div className="mt-16">
               <h2 className="font-playfair font-bold text-3xl text-white mb-8 text-center">

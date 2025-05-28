@@ -587,10 +587,13 @@ const Recommendation = () => {
 
   return (
     <>
-      <Navbar />      <div className="bg-dark-gray py-4 md:py-8 px-3 md:px-16 min-h-screen">
-        <div className="max-w-4xl mx-auto mb-4 md:mb-6"> 
+      <Navbar />{" "}
+      <div className="bg-dark-gray py-4 md:py-8 px-3 md:px-16 min-h-screen">
+        <div className="max-w-4xl mx-auto mb-4 md:mb-6">
           <div className="bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
-            <div className="px-4 py-6 md:px-12 md:py-16">              {/* Header */}
+            <div className="px-4 py-6 md:px-12 md:py-16">
+              {" "}
+              {/* Header */}
               <div className="mb-8 md:mb-16 text-center relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-gold/5 via-transparent to-gold/5 rounded-full transform -skew-y-1"></div>
                 <div className="relative">
@@ -606,7 +609,8 @@ const Recommendation = () => {
                     <div className="w-16 md:w-24 h-1 bg-gradient-to-r from-gold to-yellow-500 rounded-full"></div>
                   </div>
                 </div>
-              </div>              {/* Form */}
+              </div>{" "}
+              {/* Form */}
               <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
                 {/* Progress indicator */}
                 <div className="mb-6 md:mb-8">
@@ -627,7 +631,8 @@ const Recommendation = () => {
                     {Object.values(formData).filter(Boolean).length} dari 6
                     pertanyaan dijawab
                   </p>
-                </div>                {/* Gender Selection */}
+                </div>{" "}
+                {/* Gender Selection */}
                 <div className="mb-8 md:mb-10">
                   <h2 className="font-playfair font-medium text-lg md:text-xl mb-4 md:mb-6 text-gray-800 flex items-center">
                     <span className="w-2 h-6 md:h-8 bg-gold rounded-full mr-3"></span>
@@ -669,7 +674,8 @@ const Recommendation = () => {
                       </label>
                     ))}
                   </div>
-                </div>                {/* Time of Use */}
+                </div>{" "}
+                {/* Time of Use */}
                 <div className="mb-8 md:mb-10">
                   <h2 className="font-playfair font-medium text-lg md:text-xl mb-4 md:mb-6 text-gray-800 flex items-center">
                     <span className="w-2 h-6 md:h-8 bg-gold rounded-full mr-3"></span>
@@ -711,7 +717,8 @@ const Recommendation = () => {
                       </label>
                     ))}
                   </div>
-                </div>                {/* Budget */}
+                </div>{" "}
+                {/* Budget */}
                 <div className="mb-8 md:mb-10">
                   <h2 className="font-playfair font-medium text-lg md:text-xl mb-4 md:mb-6 text-gray-800 flex items-center">
                     <span className="w-2 h-6 md:h-8 bg-gold rounded-full mr-3"></span>
@@ -753,7 +760,8 @@ const Recommendation = () => {
                       </label>
                     ))}
                   </div>
-                </div>                {/* Concentration */}
+                </div>{" "}
+                {/* Concentration */}
                 <div className="mb-8 md:mb-10">
                   <h2 className="font-playfair font-medium text-lg md:text-xl mb-4 md:mb-6 text-gray-800 flex items-center">
                     <span className="w-2 h-6 md:h-8 bg-gold rounded-full mr-3"></span>
@@ -795,7 +803,8 @@ const Recommendation = () => {
                       </label>
                     ))}
                   </div>
-                </div>                {/* Bottle Size */}
+                </div>{" "}
+                {/* Bottle Size */}
                 <div className="mb-8 md:mb-10">
                   <h2 className="font-playfair font-medium text-lg md:text-xl mb-4 md:mb-6 text-gray-800 flex items-center">
                     <span className="w-2 h-6 md:h-8 bg-gold rounded-full mr-3"></span>
@@ -837,7 +846,8 @@ const Recommendation = () => {
                       </label>
                     ))}
                   </div>
-                </div>                {/* Aroma Description */}
+                </div>{" "}
+                {/* Aroma Description */}
                 <div className="mb-8 md:mb-12">
                   <h2 className="font-playfair font-medium text-lg md:text-xl mb-4 md:mb-6 text-gray-800 flex items-center">
                     <span className="w-2 h-6 md:h-8 bg-gold rounded-full mr-3"></span>
@@ -858,7 +868,6 @@ const Recommendation = () => {
                     </div>
                   </div>
                 </div>
-
                 {/* Submit Button */}
                 <div className="text-center">
                   <button
