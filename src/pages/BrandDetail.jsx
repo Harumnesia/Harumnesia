@@ -6,6 +6,7 @@ import logo from "../assets/logo.jpg";
 import farhamptonImg from "../assets/parfum-farhampton.jpg";
 import luminosImg from "../assets/parfum-luminos.jpg";
 import chnoImg from "../assets/parfum-chno.jpg";
+import { apiRequest, API_ENDPOINTS } from "../config/api";
 
 // Default image mapping for when MongoDB images aren't available
 const defaultImages = {
@@ -130,24 +131,9 @@ const BrandDetail = () => {
       setLoading(true);
       // Fetch perfumes by brand using the new API
       console.log(`Fetching perfumes for brand: ${decodedBrandName}`);
-
-      const response = await fetch(
-        `http://localhost:5001/api/perfumes/brand/${decodedBrandName}`,
-        {
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-        }
+      const data = await apiRequest(
+        API_ENDPOINTS.PERFUMES_BY_BRAND(decodedBrandName)
       );
-
-      if (!response.ok) {
-        throw new Error(
-          `Failed to fetch perfumes: ${response.status} ${response.statusText}`
-        );
-      }
-
-      const data = await response.json();
       console.log(
         `Found ${data.length} perfumes for brand: ${decodedBrandName}`
       );

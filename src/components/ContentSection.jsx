@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import luminosImg from "../assets/parfum-luminos.jpg";
 import chnoImg from "../assets/parfum-chno.jpg";
 import farhamptonImg from "../assets/parfum-farhampton.jpg";
+import { apiRequest, API_ENDPOINTS } from "../config/api";
 
 // Default image mapping for when MongoDB images aren't available
 const defaultImages = {
@@ -82,18 +83,11 @@ const ContentSection = () => {
   const [featuredPerfumes, setFeaturedPerfumes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
   useEffect(() => {
     const fetchFeaturedPerfumes = async () => {
       try {
         setLoading(true);
-        const response = await fetch("http://localhost:5001/api/perfumes");
-
-        if (!response.ok) {
-          throw new Error("Failed to fetch perfumes");
-        }
-
-        const data = await response.json();
+        const data = await apiRequest(API_ENDPOINTS.PERFUMES);
 
         // Get 3 random perfumes from different brands if possible
         const uniqueBrands = [...new Set(data.map((p) => p.brand))];

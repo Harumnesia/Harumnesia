@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { apiRequest, API_ENDPOINTS } from "../config/api";
 
 // Search bar component for brands
 const SearchBar = ({ searchQuery, onSearchChange, onClearSearch }) => {
@@ -126,28 +127,11 @@ const Brands = () => {
   const handleClearSearch = () => {
     setSearchQuery("");
   };
-
   const fetchBrands = async () => {
     try {
       setLoading(true);
       // Mengakses API yang baru dibuat untuk mengambil daftar brand dari parfumdb
-      const response = await fetch(
-        "http://localhost:5001/api/perfumes/brands",
-        {
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error(
-          `Failed to fetch brands: ${response.status} ${response.statusText}`
-        );
-      }
-
-      const data = await response.json();
+      const data = await apiRequest(API_ENDPOINTS.PERFUME_BRANDS);
       console.log("Brands from API:", data);
       console.log("Total brands:", data.length);
 

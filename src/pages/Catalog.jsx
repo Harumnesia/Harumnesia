@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import luminosImg from "../assets/parfum-luminos.jpg";
 import chnoImg from "../assets/parfum-chno.jpg";
 import farhamptonImg from "../assets/parfum-farhampton.jpg";
+import { apiRequest, API_ENDPOINTS } from "../config/api";
 
 // Default image mapping for when MongoDB images aren't available
 const defaultImages = {
@@ -304,23 +305,10 @@ const Catalog = () => {
       setCurrentPage(1);
     }
   }, [searchQuery]);
-
   const fetchAllPerfumes = async () => {
     try {
       console.log("Fetching all perfumes for search...");
-      const response = await fetch("http://localhost:5001/api/perfumes", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error(`Failed to fetch all perfumes: ${response.status}`);
-      }
-
-      const data = await response.json();
+      const data = await apiRequest(API_ENDPOINTS.PERFUMES);
 
       // Validate and clean the data before storing
       const cleanedData = data.map((perfume) => ({
@@ -337,33 +325,16 @@ const Catalog = () => {
       setAllPerfumes([]);
     }
   };
-
   const fetchPerfumes = async (page) => {
     try {
       setLoading(true);
       console.log(`Memulai fetch data parfum halaman ${page}...`);
 
       // Use the new API endpoint with pagination
-      const response = await fetch(
-        `http://localhost:5001/api/perfumes/page/${page}`,
-        {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const data = await apiRequest(API_ENDPOINTS.PERFUMES_BY_PAGE(page));
 
-      console.log("Status respons:", response.status);
+      console.log("Status respons:", "200");
 
-      if (!response.ok) {
-        throw new Error(
-          `Failed to fetch perfumes: ${response.status} ${response.statusText}`
-        );
-      }
-
-      const data = await response.json();
       console.log("Perfumes dari API:", data); // Log untuk debugging
       console.log("Jumlah parfum:", data.count); // Log jumlah total parfum
 
