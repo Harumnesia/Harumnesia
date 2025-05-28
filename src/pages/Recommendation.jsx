@@ -587,38 +587,34 @@ const Recommendation = () => {
 
   return (
     <>
-      <Navbar />
-      <div className="bg-dark-gray py-8 px-4 md:px-16 min-h-screen">
-        <div className="max-w-4xl mx-auto mb-6"> 
-          <div className="bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
-            <div className="px-8 py-12 md:px-12 md:py-16">
-              {/* Header */}
-              <div className="mb-16 text-center relative">
+      <Navbar />      <div className="bg-dark-gray py-4 md:py-8 px-3 md:px-16 min-h-screen">
+        <div className="max-w-4xl mx-auto mb-4 md:mb-6"> 
+          <div className="bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
+            <div className="px-4 py-6 md:px-12 md:py-16">              {/* Header */}
+              <div className="mb-8 md:mb-16 text-center relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-gold/5 via-transparent to-gold/5 rounded-full transform -skew-y-1"></div>
                 <div className="relative">
-                  <h1 className="font-playfair font-bold text-4xl md:text-5xl text-gray-900 mb-4 leading-tight">
+                  <h1 className="font-playfair font-bold text-2xl md:text-4xl lg:text-5xl text-gray-900 mb-3 md:mb-4 leading-tight">
                     Temukan Parfum <span className="text-gold">Impian</span>{" "}
                     Anda
                   </h1>
-                  <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                  <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed px-2 md:px-0">
                     Jawab pertanyaan berikut untuk mendapatkan rekomendasi
                     parfum yang sempurna sesuai kepribadian dan preferensi Anda
                   </p>
-                  <div className="mt-6 flex justify-center">
-                    <div className="w-24 h-1 bg-gradient-to-r from-gold to-yellow-500 rounded-full"></div>
+                  <div className="mt-4 md:mt-6 flex justify-center">
+                    <div className="w-16 md:w-24 h-1 bg-gradient-to-r from-gold to-yellow-500 rounded-full"></div>
                   </div>
                 </div>
-              </div>
-
-              {/* Form */}
-              <form onSubmit={handleSubmit} className="space-y-2">
+              </div>              {/* Form */}
+              <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
                 {/* Progress indicator */}
-                <div className="mb-5">
+                <div className="mb-6 md:mb-8">
                   <div className="flex justify-center space-x-2">
                     {[1, 2, 3, 4, 5, 6].map((step) => (
                       <div
                         key={step}
-                        className={`w-3 h-3 rounded-full transition-all duration-500 ${
+                        className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-500 ${
                           step <=
                           Object.values(formData).filter(Boolean).length + 1
                             ? "bg-gold shadow-md"
@@ -627,22 +623,21 @@ const Recommendation = () => {
                       ></div>
                     ))}
                   </div>
-                  <p className="text-center text-sm text-gray-500 mt-3">
+                  <p className="text-center text-xs md:text-sm text-gray-500 mt-2 md:mt-3">
                     {Object.values(formData).filter(Boolean).length} dari 6
                     pertanyaan dijawab
                   </p>
-                </div>
-                {/* Gender Selection */}
-                <div className="mb-10">
-                  <h2 className="font-playfair font-medium text-xl mb-6 text-gray-800 flex items-center">
-                    <span className="w-2 h-8 bg-gold rounded-full mr-3"></span>
+                </div>                {/* Gender Selection */}
+                <div className="mb-8 md:mb-10">
+                  <h2 className="font-playfair font-medium text-lg md:text-xl mb-4 md:mb-6 text-gray-800 flex items-center">
+                    <span className="w-2 h-6 md:h-8 bg-gold rounded-full mr-3"></span>
                     Untuk siapa parfum ini?
                   </h2>
-                  <div className="flex flex-wrap justify-between gap-3">
+                  <div className="flex flex-col sm:flex-row sm:justify-between gap-3">
                     {options.gender.map((option) => (
                       <label
                         key={option.value}
-                        className={`group w-[32%] relative border-2 rounded-xl p-4 cursor-pointer transition-all duration-300 transform hover:scale-105
+                        className={`group w-full sm:w-[32%] relative border-2 rounded-xl p-3 md:p-4 cursor-pointer transition-all duration-300 transform hover:scale-105
                           ${
                             formData.gender === option.value
                               ? "border-gold bg-gradient-to-br from-gold/10 to-gold/5 shadow-lg ring-2 ring-gold/30"
@@ -674,19 +669,17 @@ const Recommendation = () => {
                       </label>
                     ))}
                   </div>
-                </div>
-
-                {/* Time of Use */}
-                <div className="mb-10">
-                  <h2 className="font-playfair font-medium text-xl mb-6 text-gray-800 flex items-center">
-                    <span className="w-2 h-8 bg-gold rounded-full mr-3"></span>
+                </div>                {/* Time of Use */}
+                <div className="mb-8 md:mb-10">
+                  <h2 className="font-playfair font-medium text-lg md:text-xl mb-4 md:mb-6 text-gray-800 flex items-center">
+                    <span className="w-2 h-6 md:h-8 bg-gold rounded-full mr-3"></span>
                     Kapan parfum akan digunakan?
                   </h2>
-                  <div className="flex flex-wrap justify-between gap-3">
+                  <div className="flex flex-col sm:flex-row sm:justify-between gap-3">
                     {options.timeOfUse.map((option) => (
                       <label
                         key={option.value}
-                        className={`group w-[32%] relative border-2 rounded-xl p-4 cursor-pointer transition-all duration-300 transform hover:scale-105
+                        className={`group w-full sm:w-[32%] relative border-2 rounded-xl p-3 md:p-4 cursor-pointer transition-all duration-300 transform hover:scale-105
                           ${
                             formData.timeOfUse === option.value
                               ? "border-gold bg-gradient-to-br from-gold/10 to-gold/5 shadow-lg ring-2 ring-gold/30"
@@ -718,19 +711,17 @@ const Recommendation = () => {
                       </label>
                     ))}
                   </div>
-                </div>
-
-                {/* Budget */}
-                <div className="mb-10">
-                  <h2 className="font-playfair font-medium text-xl mb-6 text-gray-800 flex items-center">
-                    <span className="w-2 h-8 bg-gold rounded-full mr-3"></span>
+                </div>                {/* Budget */}
+                <div className="mb-8 md:mb-10">
+                  <h2 className="font-playfair font-medium text-lg md:text-xl mb-4 md:mb-6 text-gray-800 flex items-center">
+                    <span className="w-2 h-6 md:h-8 bg-gold rounded-full mr-3"></span>
                     Berapa budget kamu?
                   </h2>
-                  <div className="flex flex-wrap justify-between gap-3">
+                  <div className="flex flex-col sm:flex-row sm:justify-between gap-3">
                     {options.budget.map((option) => (
                       <label
                         key={option.value}
-                        className={`group w-[32%] relative border-2 rounded-xl p-4 cursor-pointer transition-all duration-300 transform hover:scale-105
+                        className={`group w-full sm:w-[32%] relative border-2 rounded-xl p-3 md:p-4 cursor-pointer transition-all duration-300 transform hover:scale-105
                           ${
                             formData.budget === option.value
                               ? "border-gold bg-gradient-to-br from-gold/10 to-gold/5 shadow-lg ring-2 ring-gold/30"
@@ -749,7 +740,7 @@ const Recommendation = () => {
                           <div className="mb-2 transition-transform duration-300 scale-75">
                             {option.icon}
                           </div>
-                          <span className="font-playfair text-center font-medium text-gray-700 group-hover:text-gray-900 text-xs">
+                          <span className="font-playfair text-center font-medium text-gray-700 group-hover:text-gray-900 text-xs sm:text-sm">
                             {option.label}
                           </span>
                         </div>
@@ -762,19 +753,17 @@ const Recommendation = () => {
                       </label>
                     ))}
                   </div>
-                </div>
-
-                {/* Concentration */}
-                <div className="mb-10">
-                  <h2 className="font-playfair font-medium text-xl mb-6 text-gray-800 flex items-center">
-                    <span className="w-2 h-8 bg-gold rounded-full mr-3"></span>
+                </div>                {/* Concentration */}
+                <div className="mb-8 md:mb-10">
+                  <h2 className="font-playfair font-medium text-lg md:text-xl mb-4 md:mb-6 text-gray-800 flex items-center">
+                    <span className="w-2 h-6 md:h-8 bg-gold rounded-full mr-3"></span>
                     Pilih tingkat konsentrasi Anda
                   </h2>
-                  <div className="flex flex-wrap justify-between gap-3">
+                  <div className="flex flex-col sm:flex-row sm:justify-between gap-3">
                     {options.concentration.map((option) => (
                       <label
                         key={option.value}
-                        className={`group w-[32%] relative border-2 rounded-xl p-4 cursor-pointer transition-all duration-300 transform hover:scale-105
+                        className={`group w-full sm:w-[32%] relative border-2 rounded-xl p-3 md:p-4 cursor-pointer transition-all duration-300 transform hover:scale-105
                           ${
                             formData.concentration === option.value
                               ? "border-gold bg-gradient-to-br from-gold/10 to-gold/5 shadow-lg ring-2 ring-gold/30"
@@ -806,19 +795,17 @@ const Recommendation = () => {
                       </label>
                     ))}
                   </div>
-                </div>
-
-                {/* Bottle Size */}
-                <div className="mb-10">
-                  <h2 className="font-playfair font-medium text-xl mb-6 text-gray-800 flex items-center">
-                    <span className="w-2 h-8 bg-gold rounded-full mr-3"></span>
+                </div>                {/* Bottle Size */}
+                <div className="mb-8 md:mb-10">
+                  <h2 className="font-playfair font-medium text-lg md:text-xl mb-4 md:mb-6 text-gray-800 flex items-center">
+                    <span className="w-2 h-6 md:h-8 bg-gold rounded-full mr-3"></span>
                     Berapa size botol yang kamu cari?
                   </h2>
-                  <div className="flex flex-wrap justify-between gap-3">
+                  <div className="flex flex-col sm:flex-row sm:justify-between gap-3">
                     {options.bottleSize.map((option) => (
                       <label
                         key={option.value}
-                        className={`group w-[32%] relative border-2 rounded-xl p-4 cursor-pointer transition-all duration-300 transform hover:scale-105
+                        className={`group w-full sm:w-[32%] relative border-2 rounded-xl p-3 md:p-4 cursor-pointer transition-all duration-300 transform hover:scale-105
                           ${
                             formData.bottleSize === option.value
                               ? "border-gold bg-gradient-to-br from-gold/10 to-gold/5 shadow-lg ring-2 ring-gold/30"
@@ -837,7 +824,7 @@ const Recommendation = () => {
                           <div className="mb-2 transition-transform duration-300 scale-75">
                             {option.icon}
                           </div>
-                          <span className="font-playfair text-center font-medium text-gray-700 group-hover:text-gray-900 text-xs">
+                          <span className="font-playfair text-center font-medium text-gray-700 group-hover:text-gray-900 text-xs sm:text-sm leading-tight">
                             {option.label}
                           </span>
                         </div>
@@ -850,12 +837,10 @@ const Recommendation = () => {
                       </label>
                     ))}
                   </div>
-                </div>
-
-                {/* Aroma Description */}
-                <div className="mb-12">
-                  <h2 className="font-playfair font-medium text-xl mb-6 text-gray-800 flex items-center">
-                    <span className="w-2 h-8 bg-gold rounded-full mr-3"></span>
+                </div>                {/* Aroma Description */}
+                <div className="mb-8 md:mb-12">
+                  <h2 className="font-playfair font-medium text-lg md:text-xl mb-4 md:mb-6 text-gray-800 flex items-center">
+                    <span className="w-2 h-6 md:h-8 bg-gold rounded-full mr-3"></span>
                     Deskripsikan aroma yang kamu inginkan
                   </h2>
                   <div className="relative">
@@ -863,11 +848,12 @@ const Recommendation = () => {
                       name="aromaDescription"
                       value={formData.aromaDescription}
                       onChange={handleChange}
-                      className="w-full p-6 bg-gradient-to-br from-cream to-gray-50 border-2 border-gray-200 rounded-2xl font-light text-gray-700 focus:border-gold focus:ring-4 focus:ring-gold/20 focus:outline-none transition-all duration-300 resize-none hover:shadow-md placeholder-gray-400"
+                      className="w-full p-4 md:p-6 bg-gradient-to-br from-cream to-gray-50 border-2 border-gray-200 rounded-2xl font-light text-gray-700 focus:border-gold focus:ring-4 focus:ring-gold/20 focus:outline-none transition-all duration-300 resize-none hover:shadow-md placeholder-gray-400 text-sm md:text-base"
                       placeholder="Contoh: Aku ingin parfum yang segar dan ringan seperti jeruk tidak manis dan cocok untuk olahraga"
-                      rows="5"
+                      rows="4"
+                      maxLength="500"
                     ></textarea>
-                    <div className="absolute bottom-4 right-4 text-xs text-gray-400">
+                    <div className="absolute bottom-2 md:bottom-4 right-2 md:right-4 text-xs text-gray-400">
                       {formData.aromaDescription.length}/500
                     </div>
                   </div>

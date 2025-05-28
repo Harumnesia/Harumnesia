@@ -48,7 +48,7 @@ const SimilarPerfume = ({ id, image, brand, name, price }) => {
             <img
               src={imgSrc}
               alt={name}
-              className="w-full h-40 object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
+              className="w-full h-32 sm:h-40 object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
             />
 
             {/* Image overlay effects */}
@@ -64,20 +64,20 @@ const SimilarPerfume = ({ id, image, brand, name, price }) => {
             </div>
           </div>
 
-          <div className="p-4">
+          <div className="p-3 sm:p-4">
             <div className="mb-1">
               <span className="text-dark-blue font-inter text-xs uppercase tracking-wider font-semibold group-hover:text-gold transition-colors duration-300">
                 {brand}
               </span>
             </div>
-            <h2 className="font-playfair font-bold text-lg text-dark-gray mb-2 group-hover:text-dark-blue transition-colors duration-300">
+            <h2 className="font-playfair font-bold text-base sm:text-lg text-dark-gray mb-2 group-hover:text-dark-blue transition-colors duration-300 line-clamp-2">
               {name}
             </h2>
-            <div className="flex justify-between items-center">
-              <span className="bg-gradient-to-r from-black via-dark-gray to-black text-white font-inter font-medium text-sm px-3 py-1.5 rounded-lg shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:bg-gradient-to-r group-hover:from-gold group-hover:via-gold group-hover:to-gold/90 group-hover:text-dark-gray">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+              <span className="bg-gradient-to-r from-black via-dark-gray to-black text-white font-inter font-medium text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:bg-gradient-to-r group-hover:from-gold group-hover:via-gold group-hover:to-gold/90 group-hover:text-dark-gray text-center">
                 {price || "Price unavailable"}
               </span>
-              <span className="text-light-gray font-inter text-sm group-hover:text-gold transition-colors duration-300 font-semibold">
+              <span className="text-light-gray font-inter text-xs sm:text-sm group-hover:text-gold transition-colors duration-300 font-semibold text-center sm:text-right">
                 30ml XDP
               </span>
             </div>
@@ -426,15 +426,13 @@ const PerfumeDetail = () => {
                 </div>
               )}
             </div>
-          </div>
-
-          {/* Similar Perfumes Section */}
+          </div>          {/* Similar Perfumes Section */}
           {similarPerfumes.length > 0 && (
             <div className="mt-16">
               <h2 className="font-playfair font-bold text-3xl text-white mb-8 text-center">
                 Produk Lain dari Brand {perfume.brand}
               </h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {similarPerfumes.map((item) => (
                   <SimilarPerfume
                     key={item["ID Perfume"] || item.perfumeId || item._id}
