@@ -25,7 +25,6 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gold/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
             </div>
           </div>
-
           <h1 className="font-playfair font-normal text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-9xl mb-2 sm:mb-2 md:mb-4 leading-tight">
             Temukan Aroma
           </h1>
@@ -35,11 +34,13 @@ const Hero = () => {
           <p className="font-inter font-medium text-sm sm:text-base md:text-lg lg:text-xl max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-3xl mb-6 sm:mb-8 md:mb-12 px-2 sm:px-4 leading-relaxed">
             Harumnesia membantu anda menemukan parfum lokal Indonesia terbaik
             yang sesuai dengan preferensi dan kebutuhan anda
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 items-center w-full max-w-md sm:max-w-none">
-            <Link to="/recommendation-method" className="w-full sm:w-auto">
-              <button className="group relative bg-gradient-to-r from-gold via-gold to-gold/90 text-black font-inter font-medium px-4 py-3 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-2xl text-sm sm:text-base md:text-xl shadow-[0_10px_30px_rgba(245,213,122,0.4)] transition-all duration-500 flex items-center justify-center hover:shadow-[0_15px_40px_rgba(245,213,122,0.6)] hover:scale-105 overflow-hidden border border-gold/30 w-full sm:w-auto">
+          </p>{" "}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 items-center justify-center w-full">
+            <Link
+              to="/recommendation-method"
+              className="w-full sm:w-auto max-w-xs sm:max-w-none"
+            >
+              <button className="group relative bg-gradient-to-r from-gold via-gold to-gold/90 text-black font-inter font-medium px-4 py-3 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-2xl text-sm sm:text-base md:text-xl shadow-[0_10px_30px_rgba(245,213,122,0.4)] transition-all duration-500 flex items-center justify-center hover:shadow-[0_15px_40px_rgba(245,213,122,0.6)] hover:scale-105 overflow-hidden border border-gold/30 w-full">
                 {/* Enhanced AI Icon with animations */}
                 <div className="relative mr-2 sm:mr-2 md:mr-3">
                   <svg
@@ -87,8 +88,11 @@ const Hero = () => {
                 <div className="absolute inset-0 bg-gold/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
               </button>
             </Link>
-            <Link to="/catalog" className="w-full sm:w-auto">
-              <button className="text-white font-inter font-medium px-4 py-3 sm:px-6 sm:py-3 md:px-8 md:py-4 text-sm sm:text-base md:text-xl hover:underline transition-all w-full sm:w-auto text-center">
+            <Link
+              to="/catalog"
+              className="w-full sm:w-auto max-w-xs sm:max-w-none"
+            >
+              <button className="text-white font-inter font-medium px-4 py-3 sm:px-6 sm:py-3 md:px-8 md:py-4 text-sm sm:text-base md:text-xl hover:underline transition-all w-full text-center">
                 Jelajahi Katalog
               </button>
             </Link>
