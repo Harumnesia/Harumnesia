@@ -159,7 +159,14 @@ const BudgetLowIcon = () => (
       strokeWidth="2"
       strokeLinecap="round"
     />
-    <circle cx="12" cy="12" r="6" stroke="#D97706" strokeWidth="2" fill="none" />
+    <circle
+      cx="12"
+      cy="12"
+      r="6"
+      stroke="#D97706"
+      strokeWidth="2"
+      fill="none"
+    />
   </svg>
 );
 
@@ -173,8 +180,20 @@ const BudgetMediumIcon = () => (
     className="transition-transform duration-300 group-hover:scale-110"
   >
     <circle cx="12" cy="12" r="10" fill="#DCFCE7" className="drop-shadow-md" />
-    <path d="M12 7V17M8 12H16" stroke="#059669" strokeWidth="2" strokeLinecap="round" />
-    <circle cx="12" cy="12" r="6" stroke="#059669" strokeWidth="2" fill="none" />
+    <path
+      d="M12 7V17M8 12H16"
+      stroke="#059669"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+    <circle
+      cx="12"
+      cy="12"
+      r="6"
+      stroke="#059669"
+      strokeWidth="2"
+      fill="none"
+    />
     <circle cx="8" cy="8" r="2" fill="#059669" />
     <circle cx="16" cy="16" r="2" fill="#059669" />
   </svg>
@@ -190,8 +209,20 @@ const BudgetHighIcon = () => (
     className="transition-transform duration-300 group-hover:scale-110"
   >
     <circle cx="12" cy="12" r="10" fill="#FEF3C7" className="drop-shadow-md" />
-    <path d="M12 7V17M8 12H16" stroke="#D97706" strokeWidth="2" strokeLinecap="round" />
-    <circle cx="12" cy="12" r="6" stroke="#D97706" strokeWidth="2" fill="#FBBF24" />
+    <path
+      d="M12 7V17M8 12H16"
+      stroke="#D97706"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+    <circle
+      cx="12"
+      cy="12"
+      r="6"
+      stroke="#D97706"
+      strokeWidth="2"
+      fill="#FBBF24"
+    />
     <circle cx="8" cy="8" r="2" fill="#D97706" />
     <circle cx="16" cy="8" r="2" fill="#D97706" />
     <circle cx="8" cy="16" r="2" fill="#D97706" />
@@ -444,37 +475,121 @@ const Recommendation = () => {
 
   const options = {
     gender: [
-      { value: "male", label: "Pria", icon: <MaleIcon /> },
-      { value: "female", label: "Wanita", icon: <FemaleIcon /> },
-      { value: "unisex", label: "Unisex", icon: <UnisexIcon /> },
+      {
+        value: "male",
+        label: "Pria",
+        icon: <MaleIcon />,
+        tooltip: "Parfum dengan aroma maskulin yang cocok untuk pria",
+      },
+      {
+        value: "female",
+        label: "Wanita",
+        icon: <FemaleIcon />,
+        tooltip: "Parfum dengan aroma feminin yang cocok untuk wanita",
+      },
+      {
+        value: "unisex",
+        label: "Unisex",
+        icon: <UnisexIcon />,
+        tooltip: "Parfum dengan aroma netral yang cocok untuk pria dan wanita",
+      },
     ],
     timeOfUse: [
-      { value: "day", label: "Siang", icon: <MorningIcon /> },
-      { value: "night", label: "Malam", icon: <DayIcon /> },
-      { value: "versatile", label: "Versatile", icon: <NightIcon /> },
+      {
+        value: "day",
+        label: "Siang",
+        icon: <MorningIcon />,
+        tooltip:
+          "Parfum ringan dan fresh yang cocok untuk aktivitas siang hari",
+      },
+      {
+        value: "night",
+        label: "Malam",
+        icon: <DayIcon />,
+        tooltip:
+          "Parfum dengan karakter lebih bold dan sensual untuk malam hari",
+      },
+      {
+        value: "versatile",
+        label: "Versatile",
+        icon: <NightIcon />,
+        tooltip:
+          "Parfum serbaguna yang cocok digunakan kapan saja, siang atau malam",
+      },
     ],
     budget: [
-      { value: "low", label: "< Rp 150.000", icon: <BudgetLowIcon /> },
-      { value: "medium", label: "Rp 150.000 - Rp 300.000", icon: <BudgetMediumIcon /> },
-      { value: "high", label: "> Rp 300.000", icon: <BudgetHighIcon /> },
+      {
+        value: "low",
+        label: "< Rp 150.000",
+        icon: <BudgetLowIcon />,
+        tooltip: "Parfum dengan harga terjangkau di bawah 150 ribu rupiah",
+      },
+      {
+        value: "medium",
+        label: "Rp 150.000 - Rp 300.000",
+        icon: <BudgetMediumIcon />,
+        tooltip: "Parfum dengan harga menengah antara 150-300 ribu rupiah",
+      },
+      {
+        value: "high",
+        label: "> Rp 300.000",
+        icon: <BudgetHighIcon />,
+        tooltip: "Parfum premium dengan harga di atas 300 ribu rupiah",
+      },
     ],
     concentration: [
-      { value: "edt", label: "EDT", icon: <EDTIcon /> },
-      { value: "edp", label: "EDP", icon: <EDPIcon /> },
-      { value: "xdp", label: "XDP", icon: <XDPIcon /> },
+      {
+        value: "edt",
+        label: "EDT",
+        icon: <EDTIcon />,
+        tooltip:
+          "Eau de Toilette - konsentrasi 5-15%, tahan 3-5 jam, cocok untuk sehari-hari",
+      },
+      {
+        value: "edp",
+        label: "EDP",
+        icon: <EDPIcon />,
+        tooltip:
+          "Eau de Parfum - konsentrasi 15-20%, tahan 4-8 jam, lebih intens dan tahan lama",
+      },
+      {
+        value: "xdp",
+        label: "XDP",
+        icon: <XDPIcon />,
+        tooltip:
+          "Extrait de Parfum - konsentrasi 20-40%, tahan 8+ jam, paling pekat dan mewah",
+      },
     ],
     bottleSize: [
-      { value: "travel", label: "Travel Size (5-15ml)", icon: <TravelSizeIcon /> },
-      { value: "small", label: "Small (30ml)", icon: <SmallSizeIcon /> },
-      { value: "large", label: "Large (50-100ml)", icon: <LargeSizeIcon /> },
+      {
+        value: "travel",
+        label: "Travel Size (5-15ml)",
+        icon: <TravelSizeIcon />,
+        tooltip:
+          "Ukuran mini yang praktis dibawa bepergian dan cocok untuk mencoba parfum baru",
+      },
+      {
+        value: "small",
+        label: "Small (30ml)",
+        icon: <SmallSizeIcon />,
+        tooltip:
+          "Ukuran standar yang cukup untuk penggunaan sehari-hari selama beberapa bulan",
+      },
+      {
+        value: "large",
+        label: "Large (50-100ml)",
+        icon: <LargeSizeIcon />,
+        tooltip:
+          "Ukuran besar yang ekonomis untuk parfum favorit dan penggunaan jangka panjang",
+      },
     ],
   };
 
   return (
     <>
       <Navbar />
-      <div className="bg-gradient-to-br from-gray-50 to-gray-100 py-8 px-4 md:px-16 min-h-screen">
-        <div className="max-w-4xl mx-auto">
+      <div className="bg-dark-gray py-8 px-4 md:px-16 min-h-screen">
+        <div className="max-w-4xl mx-auto mb-6"> 
           <div className="bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
             <div className="px-8 py-12 md:px-12 md:py-16">
               {/* Header */}
@@ -482,10 +597,12 @@ const Recommendation = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-gold/5 via-transparent to-gold/5 rounded-full transform -skew-y-1"></div>
                 <div className="relative">
                   <h1 className="font-playfair font-bold text-4xl md:text-5xl text-gray-900 mb-4 leading-tight">
-                    Temukan Parfum <span className="text-gold">Impian</span> Anda
+                    Temukan Parfum <span className="text-gold">Impian</span>{" "}
+                    Anda
                   </h1>
                   <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                    Jawab pertanyaan berikut untuk mendapatkan rekomendasi parfum yang sempurna sesuai kepribadian dan preferensi Anda
+                    Jawab pertanyaan berikut untuk mendapatkan rekomendasi
+                    parfum yang sempurna sesuai kepribadian dan preferensi Anda
                   </p>
                   <div className="mt-6 flex justify-center">
                     <div className="w-24 h-1 bg-gradient-to-r from-gold to-yellow-500 rounded-full"></div>
@@ -496,21 +613,23 @@ const Recommendation = () => {
               {/* Form */}
               <form onSubmit={handleSubmit} className="space-y-2">
                 {/* Progress indicator */}
-                <div className="mb-12">
+                <div className="mb-5">
                   <div className="flex justify-center space-x-2">
                     {[1, 2, 3, 4, 5, 6].map((step) => (
-                      <div 
+                      <div
                         key={step}
                         className={`w-3 h-3 rounded-full transition-all duration-500 ${
-                          step <= Object.values(formData).filter(Boolean).length + 1
-                            ? 'bg-gold shadow-md'
-                            : 'bg-gray-200'
+                          step <=
+                          Object.values(formData).filter(Boolean).length + 1
+                            ? "bg-gold shadow-md"
+                            : "bg-gray-200"
                         }`}
                       ></div>
                     ))}
                   </div>
                   <p className="text-center text-sm text-gray-500 mt-3">
-                    {Object.values(formData).filter(Boolean).length} dari 6 pertanyaan dijawab
+                    {Object.values(formData).filter(Boolean).length} dari 6
+                    pertanyaan dijawab
                   </p>
                 </div>
                 {/* Gender Selection */}
@@ -523,7 +642,7 @@ const Recommendation = () => {
                     {options.gender.map((option) => (
                       <label
                         key={option.value}
-                        className={`group w-[32%] relative border-2 rounded-2xl p-6 cursor-pointer transition-all duration-300 transform hover:scale-105
+                        className={`group w-[32%] relative border-2 rounded-xl p-4 cursor-pointer transition-all duration-300 transform hover:scale-105
                           ${
                             formData.gender === option.value
                               ? "border-gold bg-gradient-to-br from-gold/10 to-gold/5 shadow-lg ring-2 ring-gold/30"
@@ -539,10 +658,18 @@ const Recommendation = () => {
                           className="sr-only"
                         />
                         <div className="flex flex-col items-center justify-center">
-                          <div className="mb-3 transition-transform duration-300">{option.icon}</div>
-                          <span className="font-playfair text-center font-medium text-gray-700 group-hover:text-gray-900">
+                          <div className="mb-2 transition-transform duration-300 scale-75">
+                            {option.icon}
+                          </div>
+                          <span className="font-playfair text-center font-medium text-gray-700 group-hover:text-gray-900 text-sm">
                             {option.label}
                           </span>
+                        </div>
+
+                        {/* Tooltip */}
+                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10 w-48 text-center">
+                          {option.tooltip}
+                          <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
                         </div>
                       </label>
                     ))}
@@ -559,7 +686,7 @@ const Recommendation = () => {
                     {options.timeOfUse.map((option) => (
                       <label
                         key={option.value}
-                        className={`group w-[32%] relative border-2 rounded-2xl p-6 cursor-pointer transition-all duration-300 transform hover:scale-105
+                        className={`group w-[32%] relative border-2 rounded-xl p-4 cursor-pointer transition-all duration-300 transform hover:scale-105
                           ${
                             formData.timeOfUse === option.value
                               ? "border-gold bg-gradient-to-br from-gold/10 to-gold/5 shadow-lg ring-2 ring-gold/30"
@@ -575,10 +702,18 @@ const Recommendation = () => {
                           className="sr-only"
                         />
                         <div className="flex flex-col items-center justify-center">
-                          <div className="mb-3 transition-transform duration-300">{option.icon}</div>
-                          <span className="font-playfair text-center font-medium text-gray-700 group-hover:text-gray-900">
+                          <div className="mb-2 transition-transform duration-300 scale-75">
+                            {option.icon}
+                          </div>
+                          <span className="font-playfair text-center font-medium text-gray-700 group-hover:text-gray-900 text-sm">
                             {option.label}
                           </span>
+                        </div>
+
+                        {/* Tooltip */}
+                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10 w-48 text-center">
+                          {option.tooltip}
+                          <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
                         </div>
                       </label>
                     ))}
@@ -595,7 +730,7 @@ const Recommendation = () => {
                     {options.budget.map((option) => (
                       <label
                         key={option.value}
-                        className={`group w-[32%] relative border-2 rounded-2xl p-6 cursor-pointer transition-all duration-300 transform hover:scale-105
+                        className={`group w-[32%] relative border-2 rounded-xl p-4 cursor-pointer transition-all duration-300 transform hover:scale-105
                           ${
                             formData.budget === option.value
                               ? "border-gold bg-gradient-to-br from-gold/10 to-gold/5 shadow-lg ring-2 ring-gold/30"
@@ -611,10 +746,18 @@ const Recommendation = () => {
                           className="sr-only"
                         />
                         <div className="flex flex-col items-center justify-center">
-                          <div className="mb-3 transition-transform duration-300">{option.icon}</div>
-                          <span className="font-playfair text-center font-medium text-gray-700 group-hover:text-gray-900 text-sm">
+                          <div className="mb-2 transition-transform duration-300 scale-75">
+                            {option.icon}
+                          </div>
+                          <span className="font-playfair text-center font-medium text-gray-700 group-hover:text-gray-900 text-xs">
                             {option.label}
                           </span>
+                        </div>
+
+                        {/* Tooltip */}
+                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10 w-48 text-center">
+                          {option.tooltip}
+                          <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
                         </div>
                       </label>
                     ))}
@@ -631,7 +774,7 @@ const Recommendation = () => {
                     {options.concentration.map((option) => (
                       <label
                         key={option.value}
-                        className={`group w-[32%] relative border-2 rounded-2xl p-6 cursor-pointer transition-all duration-300 transform hover:scale-105
+                        className={`group w-[32%] relative border-2 rounded-xl p-4 cursor-pointer transition-all duration-300 transform hover:scale-105
                           ${
                             formData.concentration === option.value
                               ? "border-gold bg-gradient-to-br from-gold/10 to-gold/5 shadow-lg ring-2 ring-gold/30"
@@ -647,10 +790,18 @@ const Recommendation = () => {
                           className="sr-only"
                         />
                         <div className="flex flex-col items-center justify-center">
-                          <div className="mb-3 transition-transform duration-300">{option.icon}</div>
-                          <span className="font-playfair text-center font-medium text-gray-700 group-hover:text-gray-900">
+                          <div className="mb-2 transition-transform duration-300 scale-75">
+                            {option.icon}
+                          </div>
+                          <span className="font-playfair text-center font-medium text-gray-700 group-hover:text-gray-900 text-sm">
                             {option.label}
                           </span>
+                        </div>
+
+                        {/* Tooltip */}
+                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10 w-56 text-center">
+                          {option.tooltip}
+                          <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
                         </div>
                       </label>
                     ))}
@@ -667,7 +818,7 @@ const Recommendation = () => {
                     {options.bottleSize.map((option) => (
                       <label
                         key={option.value}
-                        className={`group w-[32%] relative border-2 rounded-2xl p-6 cursor-pointer transition-all duration-300 transform hover:scale-105
+                        className={`group w-[32%] relative border-2 rounded-xl p-4 cursor-pointer transition-all duration-300 transform hover:scale-105
                           ${
                             formData.bottleSize === option.value
                               ? "border-gold bg-gradient-to-br from-gold/10 to-gold/5 shadow-lg ring-2 ring-gold/30"
@@ -683,10 +834,18 @@ const Recommendation = () => {
                           className="sr-only"
                         />
                         <div className="flex flex-col items-center justify-center">
-                          <div className="mb-3 transition-transform duration-300">{option.icon}</div>
-                          <span className="font-playfair text-center font-medium text-gray-700 group-hover:text-gray-900 text-sm">
+                          <div className="mb-2 transition-transform duration-300 scale-75">
+                            {option.icon}
+                          </div>
+                          <span className="font-playfair text-center font-medium text-gray-700 group-hover:text-gray-900 text-xs">
                             {option.label}
                           </span>
+                        </div>
+
+                        {/* Tooltip */}
+                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10 w-52 text-center">
+                          {option.tooltip}
+                          <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
                         </div>
                       </label>
                     ))}
@@ -718,16 +877,21 @@ const Recommendation = () => {
                 <div className="text-center">
                   <button
                     type="submit"
-                    className="group relative w-full font-playfair font-semibold bg-gradient-to-r from-gold to-yellow-500 text-white py-4 px-8 rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 overflow-hidden"
+                    className="group relative w-full mt-2 font-playfair font-semibold bg-gradient-to-r from-gold to-yellow-500 text-white py-4 px-8 rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 overflow-hidden"
                   >
                     <span className="relative z-10 flex items-center justify-center">
-                      <svg 
-                        className="w-5 h-5 mr-2 transition-transform duration-300 group-hover:rotate-12" 
-                        fill="none" 
-                        stroke="currentColor" 
+                      <svg
+                        className="w-5 h-5 mr-2 transition-transform duration-300 group-hover:rotate-12"
+                        fill="none"
+                        stroke="currentColor"
                         viewBox="0 0 24 24"
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 10V3L4 14h7v7l9-11h-7z"
+                        />
                       </svg>
                       Dapatkan Rekomendasi Parfum
                     </span>
