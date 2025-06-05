@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Model & data
+data/model/
+*.npy
+*.csv
+*.pkl
