@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@layer utilities {
+  /* Text glow effect for headings */
+  .text-shadow-glow {
+    text-shadow: 0 0 20px rgba(245, 213, 122, 0.5),
+      0 0 50px rgba(245, 213, 122, 0.3);
+  }
+
+  /* Button glow effects */
+  .shadow-gold {
+    box-shadow: 0 0 15px 2px rgba(245, 213, 122, 0.6);
+  }
+
+  .shadow-gold-lg {
+    box-shadow: 0 0 25px 5px rgba(245, 213, 122, 0.7);
+  }
+
+  /* Animation delay utilities */
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .animation-delay-700 {
+    animation-delay: 700ms;
+  }
+
+  /* Luxury effects */
+  .bg-gold-gradient {
+    background: linear-gradient(135deg, #f5d57a, #d4af37, #f5d57a);
+  }
+
+  .border-gold-shimmer {
+    border-image: linear-gradient(
+        45deg,
+        rgba(245, 213, 122, 0.3),
+        rgba(245, 213, 122, 0.7),
+        rgba(245, 213, 122, 0.3)
+      )
+      1;
+  }
+
+  /* Additional animations for Edukasi page */
+  .animate-fadeInUp {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 3s infinite;
+  }
+
+  .skew-x-15 {
+    --tw-skew-x: 15deg;
+    transform: var(--tw-transform);
+  }
+
+  /* Edukasi page specific styles */
+  .clip-pyramid {
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  }
+
+  /* Additional keyframes for animations */
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  /* Line clamp utilities */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+  }
+
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+
+  /* Subtle pulse animation for button */
+  @keyframes pulse-subtle {
+    0% {
+      box-shadow: 0 0 15px 2px rgba(245, 213, 122, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 20px 4px rgba(245, 213, 122, 0.7);
+    }
+    100% {
+      box-shadow: 0 0 15px 2px rgba(245, 213, 122, 0.5);
+    }
+  }
+
+  .animate-pulse-subtle {
+    animation: pulse-subtle 3s infinite ease-in-out;
+  }
+
+  /* Fade in up animation for cards */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Performance Optimizations dengan Tailwind */
+  .transform-gpu {
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  /* Accessibility - respect user motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
