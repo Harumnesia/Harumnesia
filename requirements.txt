@@ -1,0 +1,16 @@
+# Core Framework
+Flask
+gunicorn
+flask-cors
+
+# Data & Machine Learning
+pandas
+numpy
+scikit-learn
+tensorflow
+scipy
+joblib
+
+# Utilities
+python-dotenv
+langchain-google-genai
