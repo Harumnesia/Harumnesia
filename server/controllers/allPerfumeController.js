@@ -1,12 +1,33 @@
 import AllPerfume from "../models/AllPerfume.js";
 
-// @desc    Fetch all perfumes from the large collection
-// @route   GET /api/perfumes
+// Helper function to get filter based on type parameter
+const getLocalFilter = (type) => {
+  switch (type) {
+    case "local":
+      return { isLocal: true };
+    case "international":
+      return { isLocal: false };
+    case "all":
+      return {};
+    default:
+      return { isLocal: true }; // Default to local only
+  }
+};
+
+// @desc    Fetch all perfumes from the collection with optional filtering
+// @route   GET /api/perfumes?type=local|international|all
 // @access  Public
 const getPerfumes = async (req, res) => {
   try {
-    const perfumes = await AllPerfume.find({});
-    console.log(`Total perfumes in database: ${perfumes.length}`);
+    const { type = "local" } = req.query;
+    const filter = getLocalFilter(type);
+
+    const perfumes = await AllPerfume.find(filter);
+    console.log(
+      `Total perfumes in database with filter ${JSON.stringify(filter)}: ${
+        perfumes.length
+      }`
+    );
 
     // Transform data to ensure each perfume has a name
     const validPerfumes = perfumes.map((perfume) => {
@@ -71,17 +92,24 @@ const getPerfumeById = async (req, res) => {
   }
 };
 
-// @desc    Fetch all unique brands from parfumdb collection
-// @route   GET /api/perfumes/brands
+// @desc    Fetch all unique brands with optional filtering
+// @route   GET /api/perfumes/brands?type=local|international|all
 // @access  Public
 const getAllBrands = async (req, res) => {
   try {
+    const { type = "local" } = req.query;
+    const filter = getLocalFilter(type);
+
     // Menggunakan distinct untuk mendapatkan semua nilai brand yang unik
-    const brands = await AllPerfume.distinct("brand");
+    const brands = await AllPerfume.distinct("brand", filter);
     // Mengurutkan brand secara alfabetis
     brands.sort();
 
-    console.log(`Total unique brands: ${brands.length}`);
+    console.log(
+      `Total unique brands with filter ${JSON.stringify(filter)}: ${
+        brands.length
+      }`
+    );
     res.json(brands);
   } catch (error) {
     console.error("Error fetching brands:", error);
@@ -89,16 +117,19 @@ const getAllBrands = async (req, res) => {
   }
 };
 
-// @desc    Fetch perfumes by brand
-// @route   GET /api/perfumes/brand/:brandName
+// @desc    Fetch perfumes by brand with optional filtering
+// @route   GET /api/perfumes/brand/:brandName?type=local|international|all
 // @access  Public
 const getPerfumesByBrand = async (req, res) => {
   try {
     const brandName = req.params.brandName;
-    console.log(`Looking for perfumes with brand: ${brandName}`);
+    const { type = "local" } = req.query;
+    const filter = { ...getLocalFilter(type), brand: brandName };
+
+    console.log(`Looking for perfumes with filter: ${JSON.stringify(filter)}`);
 
     // First try exact match
-    let perfumes = await AllPerfume.find({ brand: brandName }).sort({
+    let perfumes = await AllPerfume.find(filter).sort({
       name: 1,
     });
 
@@ -110,8 +141,12 @@ const getPerfumesByBrand = async (req, res) => {
 
       // Create a case-insensitive regex
       const brandRegex = new RegExp(`^${brandName}$`, "i");
+      const caseInsensitiveFilter = {
+        ...getLocalFilter(type),
+        brand: brandRegex,
+      };
 
-      perfumes = await AllPerfume.find({ brand: brandRegex }).sort({
+      perfumes = await AllPerfume.find(caseInsensitiveFilter).sort({
         name: 1,
       });
 
@@ -173,16 +208,18 @@ const getPerfumesByBrand = async (req, res) => {
   }
 };
 
-// @desc    Fetch perfumes with pagination
-// @route   GET /api/perfumes/page/:pageNumber
+// @desc    Fetch perfumes with pagination and optional filtering
+// @route   GET /api/perfumes/page/:pageNumber?type=local|international|all
 // @access  Public
 const getPaginatedPerfumes = async (req, res) => {
   try {
     const pageSize = 12; // Number of items per page
     const page = Number(req.params.pageNumber) || 1;
+    const { type = "local" } = req.query;
+    const filter = getLocalFilter(type);
 
-    const count = await AllPerfume.countDocuments();
-    const perfumes = await AllPerfume.find({})
+    const count = await AllPerfume.countDocuments(filter);
+    const perfumes = await AllPerfume.find(filter)
       .sort({ name: 1 }) // Sort by name for consistency
       .limit(pageSize)
       .skip(pageSize * (page - 1));
@@ -227,10 +264,51 @@ const getPaginatedPerfumes = async (req, res) => {
   }
 };
 
+// @desc    Fetch all perfumes for similarity recommendation dropdowns (both local and international)
+// @route   GET /api/perfumes/similarity-options
+// @access  Public
+const getSimilarityOptions = async (req, res) => {
+  try {
+    // Get all perfumes (both local and international) for similarity recommendations
+    const perfumes = await AllPerfume.find({}).sort({ brand: 1, name: 1 });
+
+    console.log(`Total perfumes for similarity options: ${perfumes.length}`);
+
+    // Transform data to ensure each perfume has a name and is properly formatted
+    const validPerfumes = perfumes.map((perfume) => {
+      const p = perfume.toObject();
+
+      // Use perfume field if name is missing
+      if (!p.name && p.perfume) {
+        p.name = p.perfume;
+      }
+
+      // Set a fallback name if still no name
+      if (!p.name) {
+        p.name = `Perfume ${p.perfumeId || p["ID Perfume"] || p._id}`;
+      }
+
+      return {
+        _id: p._id,
+        brand: p.brand,
+        name: p.name,
+        isLocal: p.isLocal || false,
+        perfumeId: p.perfumeId || p["ID Perfume"],
+      };
+    });
+
+    res.json(validPerfumes);
+  } catch (error) {
+    console.error("Error fetching similarity options:", error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
 export {
   getPerfumes,
   getPerfumeById,
   getPaginatedPerfumes,
   getAllBrands,
   getPerfumesByBrand,
+  getSimilarityOptions,
 };

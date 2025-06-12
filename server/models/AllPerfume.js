@@ -87,10 +87,15 @@ const allPerfumeSchema = mongoose.Schema(
       type: String,
       required: false,
     },
+    isLocal: {
+      type: Boolean,
+      default: true,
+      required: true,
+    },
   },
   {
     timestamps: true,
-    collection: "localdb",
+    collection: "allperfume",
     strict: false, // Allow fields not specified in the schema
   }
 );

@@ -69,6 +69,7 @@ const samplePerfumes = [
     baseNotes: ["Vanilla", "Musk", "Amber"],
     description:
       "Aroma segar dengan sentuhan citrus yang cocok untuk aktivitas siang hari.",
+    isLocal: true,
   },
   {
     brand: "HMNS",
@@ -84,6 +85,7 @@ const samplePerfumes = [
     baseNotes: ["Sandalwood", "Musk", "Amber"],
     description:
       "Aroma woody yang elegan dengan sentuhan citrus segar di awal.",
+    isLocal: true,
   },
   {
     brand: "Soft And Co",
@@ -99,6 +101,7 @@ const samplePerfumes = [
     baseNotes: ["Vanilla", "Musk", "Sandalwood", "Amber", "Cedar"],
     description:
       "Aroma floral yang feminin dengan sentuhan citrus yang menyegarkan.",
+    isLocal: true,
   },
   {
     brand: "Kenwood",
@@ -114,6 +117,7 @@ const samplePerfumes = [
     baseNotes: ["Patchouli", "Vanilla", "White Musk"],
     description:
       "Aroma buah yang manis diikuti dengan keharuman bunga yang anggun, cocok untuk malam hari.",
+    isLocal: true,
   },
   {
     brand: "Valorant",
@@ -129,6 +133,7 @@ const samplePerfumes = [
     baseNotes: ["Amber", "Cedar", "Moss"],
     description:
       "Aroma segar dan modern dengan sentuhan aquatic yang cocok untuk semua gender.",
+    isLocal: true,
   },
   {
     brand: "Belleza",
@@ -144,6 +149,39 @@ const samplePerfumes = [
     baseNotes: ["Oud", "Vanilla", "Amber"],
     description:
       "Aroma maskulin yang kuat dan misterius dengan sentuhan rempah oriental.",
+    isLocal: true,
+  },
+  // Add some international perfumes for testing
+  {
+    brand: "Dior",
+    name: "Sauvage",
+    price: 1800000,
+    formattedPrice: "Rp 1.800.000",
+    volume: "100ml",
+    concentration: "EDT",
+    image: "sauvage.jpg",
+    gender: ["Pria", "Siang"],
+    topNotes: ["Bergamot", "Pepper"],
+    middleNotes: ["Sichuan Pepper", "Lavender", "Star Anise"],
+    baseNotes: ["Ambroxan", "Cedar", "Labdanum"],
+    description: "A fresh, raw and noble fragrance with a wild twist.",
+    isLocal: false,
+  },
+  {
+    brand: "Chanel",
+    name: "No. 5",
+    price: 2200000,
+    formattedPrice: "Rp 2.200.000",
+    volume: "100ml",
+    concentration: "EDP",
+    image: "chanel5.jpg",
+    gender: ["Wanita", "Malam"],
+    topNotes: ["Ylang-ylang", "Lemon", "Bergamot", "Amalfi Lemon"],
+    middleNotes: ["Jasmine", "Rose", "Lily-of-the-Valley"],
+    baseNotes: ["Iris", "Vetiver", "Sandalwood", "Vanilla"],
+    description:
+      "The world's most iconic fragrance - timeless and sophisticated.",
+    isLocal: false,
   },
 ];
 

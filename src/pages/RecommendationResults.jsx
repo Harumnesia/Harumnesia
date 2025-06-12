@@ -18,7 +18,7 @@ const PerfumeCard = ({
   description,
 }) => {
   return (
-    <Link to={`/perfume/${id}`} className="block group">
+    <Link to={`/perfume-static/${id}`} className="block group">
       <div className="relative bg-gradient-to-br from-white via-white to-cream rounded-2xl overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.2)] hover:shadow-[0_35px_80px_-12px_rgba(0,0,0,0.3)] transition-all duration-700 transform hover:-translate-y-4 hover:scale-[1.02] border border-gold/20 hover:border-gold/40">
         {/* Image container with overlay effects */}
         <div className="relative overflow-hidden">

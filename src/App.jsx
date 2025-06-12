@@ -10,6 +10,7 @@ import SimilarityRecommendation from "./pages/SimilarityRecommendation";
 import RecommendationResults from "./pages/RecommendationResults";
 import AboutUs from "./pages/AboutUs";
 import PerfumeDetail from "./pages/PerfumeDetail";
+import PerfumeDetailStatic from "./pages/PerfumeDetailStatic";
 import NotFound from "./pages/NotFound";
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
           />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/perfume/:id" element={<PerfumeDetail />} />
+          <Route path="/perfume-static/:id" element={<PerfumeDetailStatic />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

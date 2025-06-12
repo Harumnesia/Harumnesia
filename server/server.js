@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import brandRoutes from "./routes/brandRoutes.js";
 import allPerfumeRoutes from "./routes/allPerfumeRoutes.js";
+import aiRecommendationRoutes from "./routes/aiRecommendationRoutes.js";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -21,6 +22,7 @@ app.use(express.json());
 // Routes
 app.use("/api/perfumes", allPerfumeRoutes);
 app.use("/api/brands", brandRoutes);
+app.use("/api/ai", aiRecommendationRoutes);
 
 // Set up for image uploads
 const __filename = fileURLToPath(import.meta.url);

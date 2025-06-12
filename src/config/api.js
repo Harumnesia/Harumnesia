@@ -11,11 +11,19 @@ export const API_ENDPOINTS = {
   PERFUMES_BY_PAGE: (page) => `/api/perfumes/page/${page}`,
   PERFUMES_BY_BRAND: (brandName) => `/api/perfumes/brand/${brandName}`,
   PERFUME_BRANDS: "/api/perfumes/brands",
+  SIMILARITY_OPTIONS: "/api/perfumes/similarity-options",
 
   // Brands endpoints
   BRANDS: "/api/brands",
   BRAND_BY_ID: (id) => `/api/brands/${id}`,
   BRAND_PERFUMES: (id) => `/api/brands/${id}/perfumes`,
+
+  // AI Recommendation endpoints
+  AI_BRANDS: "/api/ai/brands",
+  AI_PERFUMES: "/api/ai/perfumes",
+  AI_SIMILARITY: "/api/ai/similarity",
+  AI_SEARCH: "/api/ai/search",
+  AI_HEALTH: "/api/ai/health",
 };
 
 // Helper function untuk membuat URL lengkap

@@ -338,8 +338,6 @@ const Recommendation = () => {
     bottleSize: "",
     aromaDescription: "",
   });
-  const [showResults, setShowResults] = useState(false);
-  const [recommendations, setRecommendations] = useState([]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -355,122 +353,6 @@ const Recommendation = () => {
     // For now, we'll just navigate to the results page
     console.log(formData);
     navigate("/recommendation/results");
-  };
-
-  const getMockRecommendations = (data) => {
-    // This would normally come from an API based on user preferences
-    const allPerfumes = [
-      {
-        id: 1,
-        name: "Dior Sauvage",
-        brand: "Dior",
-        image: "https://placehold.co/300x300?text=Dior+Sauvage",
-        price: "Rp 1.800.000",
-        description:
-          "Fresh, masculine fragrance with notes of bergamot, pepper, and ambroxan.",
-        gender: "male",
-        occasions: ["daily", "work"],
-        seasons: ["spring", "summer"],
-        budget: "high",
-      },
-      {
-        id: 2,
-        name: "Chanel No. 5",
-        brand: "Chanel",
-        image: "https://placehold.co/300x300?text=Chanel+No.5",
-        price: "Rp 2.200.000",
-        description:
-          "Timeless, floral aldehydic fragrance with notes of rose, jasmine, and vanilla.",
-        gender: "female",
-        occasions: ["evening", "formal"],
-        seasons: ["fall", "winter"],
-        budget: "high",
-      },
-      {
-        id: 3,
-        name: "Versace Eros",
-        brand: "Versace",
-        image: "https://placehold.co/300x300?text=Versace+Eros",
-        price: "Rp 1.500.000",
-        description:
-          "Bold, sensual fragrance with notes of mint, green apple, and vanilla.",
-        gender: "male",
-        occasions: ["evening", "date"],
-        seasons: ["fall", "winter"],
-        budget: "medium",
-      },
-      {
-        id: 4,
-        name: "Marc Jacobs Daisy",
-        brand: "Marc Jacobs",
-        image: "https://placehold.co/300x300?text=MJ+Daisy",
-        price: "Rp 1.400.000",
-        description:
-          "Fresh, feminine fragrance with notes of strawberry, violet, and jasmine.",
-        gender: "female",
-        occasions: ["daily", "casual"],
-        seasons: ["spring", "summer"],
-        budget: "medium",
-      },
-      {
-        id: 5,
-        name: "Jo Malone Wood Sage & Sea Salt",
-        brand: "Jo Malone",
-        image: "https://placehold.co/300x300?text=Jo+Malone",
-        price: "Rp 1.600.000",
-        description:
-          "Fresh, natural fragrance with notes of ambrette seeds, sea salt, and sage.",
-        gender: "unisex",
-        occasions: ["daily", "casual"],
-        seasons: ["summer", "spring"],
-        budget: "medium",
-      },
-      {
-        id: 6,
-        name: "Bleu de Chanel",
-        brand: "Chanel",
-        image: "https://placehold.co/300x300?text=Bleu+de+Chanel",
-        price: "Rp 1.900.000",
-        description:
-          "Fresh, woody aromatic fragrance with notes of citrus, vetiver, and incense.",
-        gender: "male",
-        occasions: ["work", "formal"],
-        seasons: ["all"],
-        budget: "high",
-      },
-    ];
-
-    // Filter based on user preferences
-    let filtered = [...allPerfumes];
-
-    if (data.gender && data.gender !== "any") {
-      filtered = filtered.filter(
-        (p) => p.gender === data.gender || p.gender === "unisex"
-      );
-    }
-
-    if (data.timeOfUse && data.timeOfUse !== "any") {
-      filtered = filtered.filter((p) => p.occasions.includes(data.timeOfUse));
-    }
-
-    if (data.budget && data.budget !== "any") {
-      filtered = filtered.filter((p) => p.budget === data.budget);
-    }
-
-    // Return up to 3 recommendations
-    return filtered.slice(0, 3);
-  };
-
-  const resetForm = () => {
-    setFormData({
-      gender: "",
-      timeOfUse: "",
-      budget: "",
-      concentration: "",
-      bottleSize: "",
-      aromaDescription: "",
-    });
-    setShowResults(false);
   };
 
   const options = {
