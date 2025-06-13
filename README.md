@@ -60,6 +60,8 @@ Setelah semua dependensi terinstal, Anda bisa menjalankan proyek dengan perintah
 
 **Frontend proyek ini telah dikonfigurasi untuk terhubung langsung ke API yang sudah di-deploy.** Ini berarti Anda **tidak wajib** menjalankan *backend* Express secara lokal untuk fungsionalitas dasar aplikasi.
 
+Jika ingin menjalankan backend express silahkan konfigurasi env
+
 ---
 
 
