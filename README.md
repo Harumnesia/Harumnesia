@@ -62,9 +62,9 @@ Setelah semua dependensi terinstal, Anda bisa menjalankan proyek dengan perintah
 
 Jika ingin menjalankan backend express silahkan konfigurasi env
 
+[Dokumentasi API Harumnesia di Postman](https://www.postman.com/spaceflight-meteorologist-64449996/workspace/harumnesia/collection/34557042-2c42f1e1-efb4-4c4e-a31a-b37fb9397aaf?action=share&creator=34557042)
+
 ---
-
-
 
 ## ✨ Terima Kasih
 
