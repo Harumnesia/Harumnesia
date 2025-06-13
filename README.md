@@ -31,6 +31,8 @@ npm run start
 
 ## API Endpoints
 
+[Dokumentasi API Harumnesia di Postman](https://www.postman.com/spaceflight-meteorologist-64449996/workspace/harumnesia/collection/34557042-2c42f1e1-efb4-4c4e-a31a-b37fb9397aaf?action=share&creator=34557042)
+
 ### Perfumes
 - `GET /api/perfumes` - Get all perfumes
 - `GET /api/perfumes/:id` - Get perfume by ID
