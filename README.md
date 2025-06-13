@@ -45,7 +45,7 @@ Setelah semua dependensi terinstal, Anda bisa menjalankan proyek dengan perintah
     npm run dev
     ```
 
-2.  **Menjalankan Mode Pengembangan Penuh (Full Development):**
+2.  **Menjalankan Mode Pengembangan Penuh (Opsional karena FrontEnd sudah terhubung dengan api yang sudah di deploy):**
     Jika ada perintah `npm run dev:full`, ini mungkin menjalankan semua layanan atau bagian *frontend* dan *backend* sekaligus.
 
     ```bash
