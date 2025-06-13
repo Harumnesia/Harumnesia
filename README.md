@@ -26,7 +26,7 @@ cp .env.example .env
 
 4. Start development server:
 ```bash
-npm run dev
+npm run start
 ```
 
 ## API Endpoints
